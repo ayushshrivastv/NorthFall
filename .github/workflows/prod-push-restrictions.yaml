@@ -1,0 +1,22 @@
+
+name: Enforce PR source for prod
+
+on:
+  pull_request:
+    branches:
+      - prod
+
+jobs:
+  enforce-source:
+    runs-on: ubuntu-latest
+    steps:
+      - name: prod push restrictions
+        run: |
+          echo "Target branch: ${{ github.base_ref }}"
+          echo "Source branch: ${{ github.head_ref }}"
+          if [ "${{ github.head_ref }}" != "main" ]; then
+          echo "PR to 'prod' must come from 'main' only"
+          echo "Current source branch '${{ github.head_ref }}'"
+          exit 1
+          fi
+
