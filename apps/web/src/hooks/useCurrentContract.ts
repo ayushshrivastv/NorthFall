@@ -1,0 +1,6 @@
+import { useBuilderChatStore } from '../store/code/useBuilderChatStore';
+
+export const useCurrentContract = () => {
+    const getCurrentContract = useBuilderChatStore((state) => state.getCurrentContract);
+    return getCurrentContract();
+};
