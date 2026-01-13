@@ -1,0 +1,18 @@
+{
+  "extends": "@northfall/typescript-config/base.json",
+  "compilerOptions": {
+    "outDir": "./dist",
+    "esModuleInterop": true,
+    "target": "es2017",
+    "forceConsistentCasingInFileNames": true,
+    "allowImportingTsExtensions": true,
+    "noEmit": true
+  },
+  "include": [
+    "src"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist"
+  ]
+}
