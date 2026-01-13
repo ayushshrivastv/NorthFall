@@ -1,0 +1,39 @@
+import { Queue } from 'bullmq';
+import { BuildJobPayload, COMMAND } from '@northfall/types';
+import crypto from 'crypto';
+import queue_config from '../configs/config.queue';
+
+export default class SocketToOrchestratorQueue {
+    private queue: Queue;
+    constructor(queue_name: string) {
+        this.queue = new Queue(queue_name, queue_config);
+    }
+
+    /**
+     * queues the users command to the server kubernetes queue
+     * @param command
+     * @param payload
+     * @returns job id of the job which is been queued
+     */
+    public async queue_command(
+        command: COMMAND,
+        payload: BuildJobPayload,
+    ): Promise<string | undefined> {
+        try {
+            const job = await this.queue.add(command, payload, {
+                priority: 2,
+                attempts: 1,
+                jobId: `anchor-command-${payload.contractId}-${this.create_job_id()}`,
+            });
+            console.log('added to the queue');
+            return job.id;
+        } catch (err) {
+            console.error('failed to run anchor build command', err);
+            return undefined;
+        }
+    }
+
+    private create_job_id() {
+        return crypto.randomBytes(10).toString('hex');
+    }
+}
