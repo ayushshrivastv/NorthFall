@@ -1,8 +1,9 @@
 import './globals.css';
 import type { Metadata } from 'next';
-import { getServerSession } from 'next-auth';
-import { authOption } from './api/auth/[...nextauth]/options';
-import SessionSetter from '@/src/lib/SessionSeter';
+// Temporarily disabled - uncomment when environment variables are configured
+// import { getServerSession } from 'next-auth';
+// import { authOption } from './api/auth/[...nextauth]/options';
+// import SessionSetter from '@/src/lib/SessionSeter';
 import WalletProviders from '@/src/providers/WalletProviders';
 import { Toaster } from 'sonner';
 
@@ -42,7 +43,8 @@ export default async function RootLayout({
 }: Readonly<{
     children: React.ReactNode;
 }>) {
-    const session = await getServerSession(authOption);
+    // Temporarily disabled - uncomment when environment variables are configured
+    // const session = await getServerSession(authOption);
 
     return (
         <html lang="en">
@@ -68,7 +70,8 @@ export default async function RootLayout({
                     }}
                 />
                 <WalletProviders>{children}</WalletProviders>
-                <SessionSetter session={session} />
+                {/* Temporarily disabled - uncomment when environment variables are configured */}
+                {/* <SessionSetter session={session} /> */}
             </body>
         </html>
     );

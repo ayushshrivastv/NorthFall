@@ -6,7 +6,7 @@ import PublicReviewCard from './PublicReviewCard';
 import ToolTipComponent from '../ui/TooltipComponent';
 import VersionLockTicker from '../tickers/VersionLockTicker';
 import Link from 'next/link';
-import { FaXTwitter } from 'react-icons/fa6';
+import { FaLinkedin } from 'react-icons/fa';
 
 const footerLinks = [
     {
@@ -33,14 +33,11 @@ const footerLinks = [
         title: 'Connect',
         links: [
             {
-                name: 'Twitter',
-                icon: FaXTwitter,
-                link: 'https://x.com/northfall_dev',
-                tooltip: '@northfall_dev',
+                name: 'LinkedIn',
+                icon: FaLinkedin,
+                link: 'https://www.linkedin.com/in/ayushshrivastv/',
+                tooltip: 'Connect on LinkedIn',
             },
-            // { name: 'GitHub', icon: FaGithub },
-            // { name: 'Discord', icon: FaDiscord },
-            // { name: 'LinkedIn', icon: FaLinkedin },
         ],
     },
 ];
@@ -63,11 +60,10 @@ export default function Footer() {
                     {footerLinks.map((section, index) => (
                         <div
                             key={section.title}
-                            className={`w-full h-full px-4 flex flex-col items-start text-neutral-200 gap-y-3 mb-8 md:mb-0 pb-6 md:pb-0 ${
-                                index < footerLinks.length - 1
-                                    ? 'md:border-r border-b md:border-b-0 border-neutral-700'
-                                    : ''
-                            }`}
+                            className={`w-full h-full px-4 flex flex-col items-start text-neutral-200 gap-y-3 mb-8 md:mb-0 pb-6 md:pb-0 ${index < footerLinks.length - 1
+                                ? 'md:border-r border-b md:border-b-0 border-neutral-700'
+                                : ''
+                                }`}
                         >
                             <div className="md:text-3xl text-2xl font-semibold">
                                 {section.title}
@@ -101,17 +97,17 @@ export default function Footer() {
                                             {link as string}
                                             {(link === 'Smart Contract Editor' ||
                                                 link === 'Deploy & Monitor') && (
-                                                <div>
-                                                    <VersionLockTicker
-                                                        showText={false}
-                                                        className={cn(
-                                                            'border border-white/10',
-                                                            'p-1 rounded-[5px] cursor-auto',
-                                                        )}
-                                                        iconClassName="size-3"
-                                                    />
-                                                </div>
-                                            )}
+                                                    <div>
+                                                        <VersionLockTicker
+                                                            showText={false}
+                                                            className={cn(
+                                                                'border border-white/10',
+                                                                'p-1 rounded-[5px] cursor-auto',
+                                                            )}
+                                                            iconClassName="size-3"
+                                                        />
+                                                    </div>
+                                                )}
                                         </span>
                                     );
                                 })}

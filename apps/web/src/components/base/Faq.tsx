@@ -5,7 +5,7 @@ import { AiOutlinePlus } from 'react-icons/ai';
 import { doto } from './FeatureOne';
 import { motion, useInView } from 'framer-motion';
 import { Button } from '../ui/button';
-import { FaGithub } from 'react-icons/fa';
+import { FaLinkedin } from 'react-icons/fa';
 
 /* eslint-disable react/prop-types */
 interface FaqData {
@@ -127,20 +127,20 @@ export default function Faq() {
                         </h1>
                         <div className="absolute bottom-2 left-0 md:bottom-12 md:left-10 text-[10px] md:text-[18px] z-10 bg-light p-3">
                             <div className="md:max-w-2xl max-w-sm flex flex-col justify-start items-start text-dark text-md font-normal">
-                                <span>Spotted an issue?</span>
-                                <span>Help us improve — open it on GitHub.</span>
+                                <span>Want to connect?</span>
+                                <span>Let&apos;s connect on LinkedIn.</span>
                                 <div className="flex items-end justify-center gap-x-2 md:gap-x-3 mt-2">
                                     <Button
                                         onClick={() =>
                                             window.open(
-                                                'https://github.com/bottle-nex/northfall',
+                                                'https://www.linkedin.com/in/ayushshrivastv/',
                                                 '_blank',
                                             )
                                         }
                                         className="font-semibold text-xs md:text-base !px-4 md:!px-6 rounded-[4px]"
                                     >
-                                        <FaGithub className="mr-2" />
-                                        GitHub
+                                        <FaLinkedin className="mr-2" />
+                                        LinkedIn
                                     </Button>
                                     <span className="font-light text-primary tracking-wide md:text-xs border-b border-primary py-1 cursor-pointer">
                                         Stay in the loop
