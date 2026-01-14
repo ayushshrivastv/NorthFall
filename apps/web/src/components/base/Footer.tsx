@@ -12,20 +12,20 @@ const footerLinks = [
     {
         title: 'Product',
         links: [
-            'AI Contract Generator',
-            'Smart Contract Editor',
-            'Deploy & Monitor',
-            'Client SDK Generator',
-            'Template Marketplace',
+            'Market Discovery',
+            'Social Trading',
+            'Signal Dashboard',
+            'Kalshi Integration',
+            'Real-time Rankings',
         ],
     },
     {
         title: 'Resources',
         links: [
             'Documentation',
-            'Anchor Guide',
+            'Market Guide',
             'API Reference',
-            'Security Best Practices',
+            'Trading Best Practices',
             'Community Forum',
         ],
     },
@@ -48,7 +48,7 @@ export default function Footer() {
             <div className="md:h-[65%] w-full border-b border-neutral-700 md:pt-20 pt-12 px-4 flex flex-col md:flex-row">
                 <div className="md:w-[50%] w-full h-full md:border-r border-neutral-700 text-neutral-100 px-4 text-left mb-8 md:mb-0">
                     <div className="max-w-lg md:text-5xl text-3xl font-semibold tracking-wide leading-tight">
-                        Build Solana Smart Contracts in Minutes, Not Days.
+                        Turn Expert Insight into Investable Signal.
                     </div>
                     {/* <p className="text-neutral-400 md:text-lg text-base mt-4 max-w-md">
                         AI-powered Anchor contract generation, deployment, and client SDK
@@ -95,8 +95,8 @@ export default function Footer() {
                                             className="cursor-pointer hover:text-primary transition-colors flex gap-x-1.5"
                                         >
                                             {link as string}
-                                            {(link === 'Smart Contract Editor' ||
-                                                link === 'Deploy & Monitor') && (
+                                            {(link === 'Social Trading' ||
+                                                link === 'Signal Dashboard') && (
                                                     <div>
                                                         <VersionLockTicker
                                                             showText={false}
@@ -124,7 +124,7 @@ export default function Footer() {
                     <LiaServicestack className="text-primary md:h-52 md:w-52 h-12 w-12 transition-all duration-500" />
                 </div>
                 <p className="text-neutral-500 md:text-sm text-xs tracking-wider mt-4 text-center px-4">
-                    © 2025 Northfall. Powered by AI + Solana.
+                    © 2025 NorthFall. Powered by Kalshi Prediction Markets.
                 </p>
             </div>
         </motion.div>
