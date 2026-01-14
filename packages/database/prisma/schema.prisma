@@ -1,0 +1,288 @@
+datasource db {
+  provider = "postgresql"
+}
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "../generated/client"
+  env_files = ["../../../.env"]
+}
+
+model User {
+  id       String  @id @default(cuid())
+  email    String  @unique
+  name     String?
+  image    String?
+  password String? // if using credentials login
+  provider String?
+
+  githubId          String? @unique
+  githubAccessToken String?
+  githubUsername    String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  subscription              Subscription?
+  contracts                 Contract[]
+  contractGenerationReviews ContractGenerationReviews[]
+  publicReviews             PublicReview[]
+  uploadedFiles             FileUpload[]
+}
+
+model Contract {
+  id           String       @id @default(cuid())
+  title        String
+  description  String?
+  contractType ContractType
+  code         String?
+  codeHash     String?
+  s3_url       String?
+
+  githubRepoName String?
+
+  lastBuildStatus BuildStatus? @default(NEVER_BUILT)
+  lastBuildId     String?
+
+  idl       Json?
+  clientSdk Json?
+
+  summarisedObject String?
+  generationStatus GenerationStatus @default(IDLE)
+
+  deployed  Boolean  @default(false)
+  programId String?
+  version   Int      @default(1)
+  user      User     @relation(fields: [userId], references: [id])
+  userId    String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  deployments               Deployment[]
+  buildJob                  BuildJob[]
+  messages                  Message[]
+  contractGenerationReviews ContractGenerationReviews[]
+}
+
+model FileUpload {
+  id       String @id @default(cuid())
+  filename String
+  size     Int
+  s3Url    String
+
+  user   User   @relation(fields: [userId], references: [id])
+  userId String
+
+  createdAt DateTime @default(now())
+}
+
+model Template {
+  id               String   @id @default(cuid())
+  title            String
+  description      String?
+  category         String
+  tags             String[]
+  s3_prefix        String?
+  solanaVersion    String
+  anchorVersion    String
+  summarisedObject String
+  imageUrl         String
+
+  message   Message[]
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+}
+
+model BuildJob {
+  id         String   @id @default(cuid())
+  contract   Contract @relation(fields: [contractId], references: [id], onDelete: Cascade)
+  contractId String
+
+  jobId   String
+  status  BuildStatus
+  podName String?
+  command Command
+
+  startedAt   DateTime?
+  completedAt DateTime?
+  duration    Int?
+  output      Json?
+  error       String?   @db.Text
+
+  retryCount Int @default(0)
+  maxRetry   Int @default(3)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([contractId, status])
+  @@index([jobId])
+  @@index([status, createdAt])
+}
+
+enum Command {
+  NORTHFALL_BUILD
+  NORTHFALL_TEST
+  NORTHFALL_DEPLOY_DEVNET
+  NORTHFALL_DEPLOY_MAINNET
+  NORTHFALL_VERIFY
+}
+
+enum BuildStatus {
+  NEVER_BUILT
+  PENDING
+  PROCESSING
+  SUCCESS
+  FAILED
+  CANCELLED
+  QUEUED
+}
+
+model Deployment {
+  id          String   @id @default(cuid())
+  contract    Contract @relation(fields: [contractId], references: [id], onDelete: Cascade)
+  contractId  String
+  network     String // devnet/testnet/mainnet
+  deployedAt  DateTime @default(now())
+  txSignature String? // optional Solana transaction signature
+  status      String // pending/success/failure
+
+  @@index([contractId])
+}
+
+model Message {
+  id         String   @id @default(cuid())
+  contractId String
+  contract   Contract @relation(fields: [contractId], references: [id], onDelete: Cascade)
+
+  role    ChatRole
+  content String   @db.Text
+
+  stage          ContractGenerationStage?
+  plannerContext String?
+  isPlanExecuted Boolean                  @default(false)
+  templateId     String?
+
+  template Template? @relation(fields: [templateId], references: [id])
+  // isCodeBuilt Boolean? @default(false)
+  // buildStatus
+
+  createdAt DateTime @default(now())
+
+  @@index([contractId])
+}
+
+model Subscription {
+  id String @id @default(cuid())
+
+  userId String @unique
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  plan   PlanType           @default(FREE)
+  status SubscriptionStatus @default(ACTIVE)
+
+  razorpayOrderId   String?
+  razorpayPaymentId String?
+  razorpaySignature String?
+
+  start     DateTime  @default(now())
+  end       DateTime?
+  autoRenew Boolean   @default(false)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model ContractGenerationReviews {
+  id String @id @default(cuid())
+
+  contractId String
+  contract   Contract @relation(fields: [contractId], references: [id], onDelete: Cascade)
+
+  userId String
+  user   User   @relation(fields: [userId], references: [id])
+
+  rating   Int
+  liked    String? @db.Text
+  disliked String? @db.Text
+
+  createdAt DateTime @default(now())
+}
+
+model PublicReview {
+  id     String @id @default(cuid())
+  user   User   @relation(fields: [userId], references: [id])
+  userId String
+
+  rating  Int
+  title   String?
+  content String? @db.Text
+
+  visible   Boolean  @default(true)
+  createdAt DateTime @default(now())
+}
+
+enum ContractType {
+  TOKEN
+  NFT
+  STAKING
+  DAO
+  DEFI
+  MARKETPLACE
+  CUSTOM
+}
+
+enum Network {
+  DEVNET
+  TESTNET
+  MAINNET_BETA
+}
+
+enum DeploymentStatus {
+  PENDING
+  SUCCESS
+  FAILED
+}
+
+enum ChatRole {
+  USER
+  AI
+  SYSTEM
+  PLAN
+  TEMPLATE
+}
+
+enum PlanType {
+  FREE
+  PREMIUM
+  PREMIUM_PLUS
+}
+
+enum SubscriptionStatus {
+  ACTIVE
+  EXPIRED
+  CANCELLED
+  PENDING
+}
+
+enum SystemMessageType {
+  BUILD_START
+  BUILD_PROGRESS
+  BUILD_COMPLETE
+  BUILD_ERROR
+}
+
+enum ContractGenerationStage {
+  PLANNING
+  GENERATING_CODE
+  BUILDING
+  CREATING_FILES
+  FINALIZING
+  END
+  ERROR
+}
+
+enum GenerationStatus {
+  IDLE
+  GENERATING
+}
