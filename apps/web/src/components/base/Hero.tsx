@@ -74,6 +74,17 @@ export default function Hero({ inputRef }: HeroProps) {
 
                     <HighlighterTicker />
                     <DashboardTextAreaComponent inputRef={inputRef} />
+
+                    {/* Powered by Kalshi */}
+                    <motion.div
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 1.2, duration: 0.5 }}
+                        className="mt-4 flex items-center justify-center gap-1.5 text-xs text-neutral-400"
+                    >
+                        <span className="font-light">Powered by</span>
+                        <span className="font-semibold text-primary">Kalshi</span>
+                    </motion.div>
                 </motion.div>
 
                 <div className="absolute bottom-4 left-4 md:bottom-8 md:left-8 text-[10px] md:text-[16px] z-20 max-w-[90%] md:max-w-md">
