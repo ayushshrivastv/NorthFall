@@ -33,8 +33,8 @@ const featureData = [
         bottomTitle: 'Full Stack',
         description: 'From contract to client SDK to frontend boilerplate',
         icon: LiaServicestack,
-        color: '#6C44FC',
-        gradient: 'from-purple-500/20 to-violet-500/20',
+        color: '#E50914',
+        gradient: 'from-red-500/20 to-rose-500/20',
     },
     {
         topTitle: 'ANCHOR',
@@ -81,11 +81,19 @@ export default function Features() {
                     <path d="M0 0 L0 0 L40 0 L42 10 58 10 L60 0 L100 0 L100 0 Z" fill="#" />
                 </svg> */}
 
-                <div className="absolute top-0 left-0 w-full h-full bg-primary z-10"></div>
+                <div className="absolute top-0 left-0 w-full h-full bg-light z-10"></div>
+                <div
+                    className="absolute inset-0 z-10"
+                    style={{
+                        backgroundImage: `radial-gradient(circle, rgb(229, 9, 20) 2px, transparent 2px)`,
+                        backgroundSize: '40px 40px',
+                        backgroundPosition: '0 0',
+                    }}
+                />
 
-                <div className="w-full md:max-w-[60%] md:text-5xl text-lg sm:text-2xl font-bold tracking-wider text-[#FDF9F0] md:leading-[1.2] relative text-center z-30">
+                <div className="w-full md:max-w-[60%] md:text-5xl text-lg sm:text-2xl font-bold tracking-wider text-darkest md:leading-[1.2] relative text-center z-30">
                     BECAUSE CODING SHOULDN&apos;T RUIN YOUR SLEEP SCHEDULE
-                    <div className="absolute text-[10px] sm:text-[12px] md:text-[15px] -top-6 font-extralight w-full flex justify-center text-[#d6caae]">
+                    <div className="absolute text-[10px] sm:text-[12px] md:text-[15px] -top-6 font-extralight w-full flex justify-center text-dark/70">
                         fin-tastic features. zero-hassle.
                     </div>
                 </div>
@@ -94,9 +102,9 @@ export default function Features() {
                     className="mt-40 flex flex-col w-full space-y-3 pointer-events-none z-30"
                     style={{ opacity: subtitleOpacity }}
                 >
-                    <div className="mt-4 w-full flex justify-center text-[7px] sm:text-sm md:text-2xl tracking-widest text-darkest font-semibold text-center px-4">
+                    <div className="mt-4 w-full flex justify-center text-[7px] sm:text-sm md:text-2xl tracking-widest text-dark font-semibold text-center px-4">
                         Transform your blockchain ideas into&nbsp;
-                        <Highlighter action="underline" color="#6C44FC">
+                        <Highlighter action="underline" color="#E50914">
                             production-ready
                         </Highlighter>
                         &nbsp;contracts seamlessly.

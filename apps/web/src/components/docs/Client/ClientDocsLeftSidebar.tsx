@@ -54,11 +54,11 @@ export default function ClientDocsLeftSidebar({ switchPanel }: ClientDocsSidebar
                                 key={content.type}
                             >
                                 {isActive && index !== 2 && (
-                                    <div className="absolute h-3 w-0.5 flex top-1/3 left-0 rounded-full bg-primary shadow-[0_1px_8px_2px_rgba(108,68,252,0.8)] transition-all duration-500 ease-out" />
+                                    <div className="absolute h-3 w-0.5 flex top-1/3 left-0 rounded-full bg-primary shadow-[0_1px_8px_2px_rgba(229,9,20,0.8)] transition-all duration-500 ease-out" />
                                 )}
 
                                 {isActive && (
-                                    <div className="absolute h-3 w-0.5 flex top-3 left-0 rounded-full bg-primary shadow-[0_1px_8px_2px_rgba(108,68,252,0.8)] transition-all duration-500 ease-out" />
+                                    <div className="absolute h-3 w-0.5 flex top-3 left-0 rounded-full bg-primary shadow-[0_1px_8px_2px_rgba(229,9,20,0.8)] transition-all duration-500 ease-out" />
                                 )}
 
                                 <div className="flex items-center justify-between gap-2">

@@ -104,7 +104,7 @@ export default function ClientDocsRightSidebar() {
         <div className="h-full z-50 fixed w-[20vw] flex flex-col top-22 items-start px-8">
             <div className="flex flex-col gap-y-5 text-left text-xs tracking-wide text-light/70 relative">
                 <div
-                    className="absolute -left-4 top-4 h-3 w-0.5 rounded-full bg-primary shadow-[0_0_10px_2px_rgba(108,68,252,0.8)] transition-all duration-500 ease-out"
+                    className="absolute -left-4 top-4 h-3 w-0.5 rounded-full bg-primary shadow-[0_0_10px_2px_rgba(229,9,20,0.8)] transition-all duration-500 ease-out"
                     style={{
                         top: `${calculatePosition(activeIndex)}px`,
                     }}

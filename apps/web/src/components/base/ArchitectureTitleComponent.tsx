@@ -13,7 +13,7 @@ export default function ArchitectureTitleComponent({
     firstText = 'FIRST',
     secondText = 'SECOND',
     bgcolor = 'bg-[#0a0c0d]',
-    bordercolor = 'border-[#6c44fc]',
+    bordercolor = 'border-[#E50914]',
     className,
 }: ArchitectureTitleComponentProps) {
     const ref = useRef(null);
@@ -82,7 +82,7 @@ export default function ArchitectureTitleComponent({
                         )}
                         variants={containerVariants}
                     >
-                        <span className="text-3xl md:text-[7rem] font-semibold tracking-wide">
+                        <span className="text-3xl md:text-[7rem] font-semibold tracking-wide whitespace-nowrap">
                             {renderAnimatedText(firstText)}
                         </span>
                     </motion.div>
@@ -93,7 +93,7 @@ export default function ArchitectureTitleComponent({
                         )}
                         variants={containerVariants}
                     >
-                        <span className="text-3xl md:text-[7rem] ml-12 md:ml-[24rem] font-semibold tracking-wide">
+                        <span className="text-3xl md:text-[7rem] ml-12 md:ml-[20rem] font-semibold tracking-wide whitespace-nowrap">
                             {renderAnimatedText(secondText)}
                         </span>
                     </motion.div>

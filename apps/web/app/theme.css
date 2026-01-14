@@ -1,10 +1,10 @@
 @theme {
-    --color-primary: #6c44fc;
+    --color-primary: #E50914;
     --color-darkest: #0e0f10;
     --color-darker: #121314;
     --color-dark: #171819;
     --color-light: #fdf9f0;
-    --color-primary-light: #9679ffea;
+    --color-primary-light: #ff4757;
     --breakpoint-xs: 375px;
     --breakpoint-md2: 896px;
 }
@@ -18,15 +18,13 @@
     border-radius: 1.5rem;
     opacity: 0;
     transition: opacity 0.3s;
-    background: radial-gradient(
-        1000px circle at var(--x) var(--y),
-        #c9ee80 0,
-        #eebbe2 10%,
-        #adc0ec 25%,
-        #c9ee80 35%,
-        rgba(255, 255, 255, 0) 50%,
-        transparent 80%
-    );
+    background: radial-gradient(1000px circle at var(--x) var(--y),
+            #c9ee80 0,
+            #eebbe2 10%,
+            #adc0ec 25%,
+            #c9ee80 35%,
+            rgba(255, 255, 255, 0) 50%,
+            transparent 80%);
     z-index: -1;
     content: '';
     inset: -1px;
@@ -66,12 +64,10 @@
     width: 60px;
     height: 100%;
     pointer-events: none;
-    background: linear-gradient(
-        to right,
-        rgba(10, 10, 10, 0.9),
-        rgba(10, 10, 10, 0.6),
-        transparent
-    );
+    background: linear-gradient(to right,
+            rgba(10, 10, 10, 0.9),
+            rgba(10, 10, 10, 0.6),
+            transparent);
     z-index: 10;
 }
 
@@ -79,6 +75,7 @@
     from {
         transform: translateX(0);
     }
+
     to {
         transform: translateX(calc(-100% - var(--gap)));
     }
@@ -88,6 +85,7 @@
     from {
         transform: translateY(0);
     }
+
     to {
         transform: translateY(calc(-100% - var(--gap)));
     }
@@ -97,6 +95,7 @@
     --animate-marquee: marquee var(--duration) infinite linear;
     --animate-marquee-vertical: marquee-vertical var(--duration) linear infinite;
 }
+
 @theme inline {
     --animate-marquee: marquee var(--duration) infinite linear;
     --animate-marquee-vertical: marquee-vertical var(--duration) linear infinite;
@@ -105,14 +104,17 @@
         from {
             transform: translateX(0);
         }
+
         to {
             transform: translateX(calc(-100% - var(--gap)));
         }
     }
+
     @keyframes marquee-vertical {
         from {
             transform: translateY(0);
         }
+
         to {
             transform: translateY(calc(-100% - var(--gap)));
         }
@@ -123,7 +125,7 @@
     display: inline-block;
     font-family: 'Courier New', monospace;
     font-size: 1em;
-    color: #6c44fc;
+    color: #E50914;
     position: relative;
 }
 
@@ -142,15 +144,19 @@
     0% {
         content: '';
     }
+
     25% {
         content: '.';
     }
+
     50% {
         content: '..';
     }
+
     75% {
         content: '...';
     }
+
     100% {
         content: '';
     }
@@ -161,7 +167,7 @@
     display: inline-block;
     font-family: 'Courier New', monospace;
     font-size: 1em;
-    color: #6c44fc;
+    color: #E50914;
 }
 
 .terminal-loader-cursor::after {
@@ -170,10 +176,12 @@
 }
 
 @keyframes terminal-blink {
+
     0%,
     50% {
         opacity: 1;
     }
+
     51%,
     100% {
         opacity: 0;
@@ -245,11 +253,9 @@
 
 .mask-gradient {
     mask-image: linear-gradient(to bottom, transparent 0%, black 10%, black 90%, transparent 100%);
-    -webkit-mask-image: linear-gradient(
-        to bottom,
-        transparent 0%,
-        black 10%,
-        black 90%,
-        transparent 100%
-    );
+    -webkit-mask-image: linear-gradient(to bottom,
+            transparent 0%,
+            black 10%,
+            black 90%,
+            transparent 100%);
 }

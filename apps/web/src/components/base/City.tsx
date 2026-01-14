@@ -46,7 +46,7 @@ export default function City3D({ className = '' }: City3DProps) {
         let createCarPos = true;
 
         // Background
-        const bg = 0x6c44fc;
+        const bg = 0x8B0000;
         scene.background = new THREE.Color(bg);
         scene.fog = new THREE.Fog(bg, 10, 16);
 

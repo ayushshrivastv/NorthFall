@@ -31,13 +31,13 @@ export default function ExecutorSelect({
                         hidePlanSvg ? 'w-7' : 'w-12.5',
                         hidePlanSvg && '[&>svg]:hidden',
                         value === EXECUTOR.AGENTIC
-                            ? 'text-[#6c44fc] hover:bg-[#6c44fc30] bg-[#6c44fc30] border [&>svg]:!size-[14px] [&>svg]:!text-[#6c44fc] focus:outline-none outline-none selection:outline-none'
+                            ? 'text-[#E50914] hover:bg-[#E5091430] bg-[#E5091430] border [&>svg]:!size-[14px] [&>svg]:!text-[#E50914] focus:outline-none outline-none selection:outline-none'
                             : 'bg-[#FFBF0030] hover:bg-[#FFBF0030] text-[#FFBF00] border [&>svg]:!size-[14px] [&>svg]:!text-[#FFBF00] focus:outline-none outline-none selection:outline-none',
                     )}
                 >
                     <div className="flex items-center text-[12px]">
                         {value === EXECUTOR.AGENTIC ? (
-                            <GoInfinity color="#6c44fc" size={14} />
+                            <GoInfinity color="#E50914" size={14} />
                         ) : (
                             <FaTelegramPlane color="#FFD93D" size={14} />
                         )}

@@ -11,7 +11,7 @@ export default function HighlighterTicker() {
         >
             NorthFall eats{' '}
             <span className="text-white">
-                <Highlighter action="highlight" padding={5} iterations={1} color="#6741EF">
+                <Highlighter action="highlight" padding={5} iterations={1} color="#E50914">
                     months
                 </Highlighter>
             </span>
