@@ -52,8 +52,8 @@ export default function ReviewsSection() {
             <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-primary/5 via-transparent to-transparent" />
             <div className="relative z-10 w-full">
                 <ArchitectureTitleComponent
-                    firstText="Winter tales"
-                    secondText="from the Wall"
+                    firstText="Signals from"
+                    secondText="the North"
                     bgcolor="bg-none"
                 />
                 <div className="relative max-w-7xl mx-auto h-[600px] px-4 md:px-0">
