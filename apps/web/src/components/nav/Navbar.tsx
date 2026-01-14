@@ -2,7 +2,6 @@
 import { LiaServicestack } from 'react-icons/lia';
 import { IoIosCreate } from 'react-icons/io';
 import { useRouter } from 'next/navigation';
-import NavItems, { NavItemsType } from './NavItems';
 import NavbarSigninAction from './NavSigninAction';
 import { cn } from '@/src/lib/utils';
 import { v4 as uuid } from 'uuid';
@@ -11,8 +10,9 @@ import { useEffect, useState } from 'react';
 import LoginModal from '../utility/LoginModal';
 import { MdHomeFilled } from 'react-icons/md';
 import AppLogo from '../tickers/AppLogo';
+import { Tabs, TabsList, TabsTrigger } from '../ui/tabs';
 
-const navItems: NavItemsType[] = [
+const navItems = [
     { name: 'Features', link: '#feature' },
     { name: 'Pricing', link: '#pricing' },
     { name: 'Faq', link: '#faq' },
@@ -70,13 +70,23 @@ export default function Navbar() {
             >
                 <AppLogo size={30} />
                 <div className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 transition-all duration-500">
-                    <div
-                        className={cn(
-                            'py-1 px-2 rounded-[8px] flex items-center justify-center transition-all duration-500',
-                        )}
-                    >
-                        <NavItems items={navItems} />
-                    </div>
+                    <Tabs defaultValue="features" className="w-auto">
+                        <TabsList className="bg-neutral-900/50 backdrop-blur-sm border border-neutral-800/50 no-visible-scrollbar">
+                            {navItems.map((item) => (
+                                <TabsTrigger
+                                    key={item.name}
+                                    value={item.name.toLowerCase()}
+                                    onClick={() => {
+                                        const element = document.querySelector(item.link);
+                                        element?.scrollIntoView({ behavior: 'smooth' });
+                                    }}
+                                    className="data-[state=active]:bg-primary data-[state=active]:text-white text-light/70 hover:text-light transition-colors"
+                                >
+                                    {item.name}
+                                </TabsTrigger>
+                            ))}
+                        </TabsList>
+                    </Tabs>
                 </div>
                 <div className="flex items-center gap-x-4">
                     <MdHomeFilled
