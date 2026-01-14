@@ -73,34 +73,6 @@ export default function Hero({ inputRef }: HeroProps) {
                     </motion.div>
 
                     <HighlighterTicker />
-
-                    {/* Kalshi API Badge */}
-                    <motion.div
-                        initial={{ opacity: 0, scale: 0.95 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        transition={{ delay: 0.8, duration: 0.6, ease: "easeOut" }}
-                        className="mb-6 inline-flex items-center gap-3 px-5 py-2.5 rounded-lg bg-gradient-to-r from-primary/15 via-primary/10 to-transparent border border-primary/30 backdrop-blur-md shadow-lg shadow-primary/10"
-                    >
-                        <div className="flex items-center gap-2.5">
-                            <div className="relative">
-                                <div className="w-2.5 h-2.5 rounded-full bg-primary" />
-                                <div className="absolute inset-0 w-2.5 h-2.5 rounded-full bg-primary animate-ping opacity-75" />
-                            </div>
-                            <div className="flex flex-col">
-                                <span className="text-[10px] md:text-xs text-light/60 font-medium tracking-wider uppercase">
-                                    Powered by
-                                </span>
-                                <span className="text-sm md:text-base font-bold text-light tracking-wide">
-                                    Kalshi API
-                                </span>
-                            </div>
-                        </div>
-                        <div className="h-8 w-px bg-gradient-to-b from-transparent via-primary/30 to-transparent hidden md:block" />
-                        <span className="text-xs text-light/70 font-medium hidden md:block">
-                            Regulated Prediction Markets
-                        </span>
-                    </motion.div>
-
                     <DashboardTextAreaComponent inputRef={inputRef} />
                     <ActionTickers />
                 </motion.div>
