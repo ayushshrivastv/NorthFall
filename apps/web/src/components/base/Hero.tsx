@@ -74,7 +74,6 @@ export default function Hero({ inputRef }: HeroProps) {
 
                     <HighlighterTicker />
                     <DashboardTextAreaComponent inputRef={inputRef} />
-                    <ActionTickers />
                 </motion.div>
 
                 <div className="absolute bottom-4 left-4 md:bottom-8 md:left-8 text-[10px] md:text-[16px] z-20 max-w-[90%] md:max-w-md">
