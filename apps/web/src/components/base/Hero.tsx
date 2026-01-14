@@ -129,12 +129,6 @@ export default function Hero({ inputRef }: HeroProps) {
                                 Explore Markets
                                 <RiCodeSSlashFill className="ml-1" />
                             </Button>
-                            <span
-                                onClick={() => router.push('/docs')}
-                                className="font-light text-primary tracking-wide text-[10px] md:text-xs border-b border-primary py-1 cursor-pointer hover:text-primary/80 transition-colors"
-                            >
-                                Read Our Docs
-                            </span>
                         </div>
                     </div>
                 </div>
