@@ -1,5 +1,5 @@
 <div align="center">
-  <h1>🎯 NorthFall</h1>
+  <h1>NorthFall</h1>
   <p><strong>Turn Expert Insight into Market-Driven Startup Discovery</strong></p>
   
   <p>
@@ -14,7 +14,7 @@
 
 ---
 
-## 🚀 Overview
+## Overview
 
 **Operators know things before investors do** — but there's no incentive-compatible, scalable way to surface that knowledge.
 
@@ -44,26 +44,26 @@ Market prices and positions are programmatically aggregated via Kalshi's APIs in
 
 ---
 
-## ✨ Features
+## Features
 
-### 🔍 Market Discovery
+### Market Discovery
 Browse prediction markets on early-stage startups with objective, verifiable outcomes. See where domain experts are placing their bets across sectors and stages.
 
-### 📱 Social Trading
+### Social Trading
 Trade directly from your social feed through **interactive link previews** inspired by Solana blinks. When you encounter a startup discussion on Twitter or elsewhere, participate in the market instantly — no context switching required.
 
-### 📊 Signal Aggregation  
+### Signal Aggregation  
 View real-time market data aggregated from Kalshi's APIs. Get investor-ready rankings that reflect the collective wisdom of operators, builders, and domain experts.
 
-### 🏛️ Kalshi Integration
+### Kalshi Integration
 Built on Kalshi's **regulated prediction market infrastructure**. All market creation, trading, and settlement leverage Kalshi's compliant platform.
 
-### ⚡ Real-Time Rankings
+### Real-Time Rankings
 Programmatically pulled market positions create live signals that help investors identify high-potential opportunities as they emerge.
 
 ---
 
-## 🔄 How It Works
+## How It Works
 
 ```mermaid
 graph LR
@@ -74,24 +74,24 @@ graph LR
     B -->|Price Discovery| F[Market Rankings]
 ```
 
-### 1. **Market Creation**
+### 1. Market Creation
 Prediction markets are created for early-stage startups with objective outcomes:
 - Funding milestones (e.g., "Will Company X raise a Series A by Q4 2026?")
 - Revenue targets (e.g., "Will Company Y reach $1M ARR by EOY?")
 - Product launches (e.g., "Will Company Z launch their beta by March?")
 
-### 2. **Expert Participation**
+### 2. Expert Participation
 Operators, builders, and domain insiders trade YES/NO positions based on their conviction and knowledge.
 
-### 3. **Social Distribution**
+### 3. Social Distribution
 Markets are embedded directly into social feeds via interactive link previews — capturing insight **where it happens**.
 
-### 4. **Signal Aggregation**
+### 4. Signal Aggregation
 Market prices and positions are pulled programmatically via Kalshi's APIs and transformed into actionable rankings for investors.
 
 ---
 
-## 🎯 Why NorthFall?
+## Why NorthFall?
 
 | Traditional VC Sourcing | NorthFall Markets |
 |------------------------|-------------------|
@@ -103,7 +103,7 @@ Market prices and positions are pulled programmatically via Kalshi's APIs and tr
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 - **Frontend**: Next.js 15 (Turbopack), React, TailwindCSS
 - **3D Graphics**: Three.js
@@ -114,7 +114,7 @@ Market prices and positions are pulled programmatically via Kalshi's APIs and tr
 
 ---
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
 - Node.js 18+ 
@@ -149,7 +149,7 @@ pnpm start
 
 ---
 
-## 📂 Project Structure
+## Project Structure
 
 ```
 northfall/
@@ -165,7 +165,7 @@ northfall/
 
 ---
 
-## 🤝 Contributing
+## Contributing
 
 We welcome contributions! Please see our [Contributing Guidelines](CONTRIBUTING.md) for details.
 
@@ -177,13 +177,13 @@ We welcome contributions! Please see our [Contributing Guidelines](CONTRIBUTING.
 
 ---
 
-## 📄 License
+## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ---
 
-## 🔗 Links
+## Links
 
 - **Website**: [northfall.vercel.app](https://northfall.vercel.app)
 - **Documentation**: [docs.northfall.dev](https://northfall.vercel.app/docs)
@@ -192,7 +192,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
-## 💡 Inspiration
+## Inspiration
 
 NorthFall draws inspiration from:
 - **Prediction markets** as information aggregation mechanisms
