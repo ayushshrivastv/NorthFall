@@ -19,7 +19,7 @@ interface LoginModalProps {
 
 function LoginLeftContent() {
     const logos = [
-        { logo: IoSparkles, color: '#9e83ff' },
+        { logo: IoSparkles, color: '#E50914' },
         { logo: SiRust, color: '#ff6b35' },
         { logo: SiSolana, color: '#14f195' },
     ];
@@ -32,14 +32,14 @@ function LoginLeftContent() {
 
             <div className="space-y-2 md:space-y-4 text-left">
                 <h3 className="text-xs md:text-2xl font-bold text-light tracking-wide leading-tight">
-                    Where AI meets Anchor.
+                    Where expert insight meets markets.
                     <br />
-                    <span className="text-light">No PhD required.</span>
+                    <span className="text-light">No crystal ball required.</span>
                 </h3>
 
                 <p className="text-[8px] md:text-sm text-light/70 leading-relaxed max-w-[300px]">
-                    Generate Rust smart contracts, deploy to Solana, and ship production-ready
-                    dApps. All with the confidence of someone who actually read the Anchor docs.
+                    Discover high-potential startups through prediction markets. Trade on outcomes,
+                    surface opportunities, and turn domain expertise into investable signals.
                 </p>
 
                 <div className="flex items-center gap-2 mb-2">
