@@ -13,20 +13,20 @@ import { v4 as uuid } from 'uuid';
 const overviewPoints = [
     {
         id: OverviewSubContent.AI_CONTRACTS,
-        title: 'Prompt to Code',
-        description: 'Generate and optimize Rust smart contracts instantly.',
+        title: 'Market Discovery',
+        description: 'Browse prediction markets on early-stage startups.',
         image: '/images/demo-1.jpg',
     },
     {
         id: OverviewSubContent.SMART_EDITOR,
-        title: 'Smart Editor',
-        description: 'Edit, refactor, and visualize your Anchor programs easily.',
+        title: 'Social Trading',
+        description: 'Trade directly from social feeds via embedded previews.',
         image: '/images/demo-2.jpg',
     },
     {
         id: OverviewSubContent.ONE_CLICK_DEPLOYMENT,
-        title: 'One Click Deployment',
-        description: 'Deploy and interact with Solana contracts effortlessly.',
+        title: 'Signal Dashboard',
+        description: 'View aggregated market data and investor rankings.',
         image: '/images/demo-3.jpg',
     },
 ];
@@ -41,14 +41,14 @@ export default function ClientOverview() {
                 <div className="grid grid-cols-[60%_40%] w-full ">
                     <div className="">
                         <div className="text-6xl text-left flex flex-col items-start justify-center">
-                            <DocsHeading firstText="Northfall" secondText="Docs" />
+                            <DocsHeading firstText="NorthFall" secondText="Docs" />
                         </div>
 
                         <div className="text-md text-light/70 tracking-wider max-w-[600px] mt-6">
-                            Northfall is an AI-powered platform that simplifies building, editing,
-                            deploying, and interacting with Rust-based Solana smart contracts using
-                            Anchor—from AI-assisted contract generation to client SDKs and frontend
-                            integration.
+                            NorthFall is a prediction market platform that turns expert insight into
+                            market-driven startup discovery. Built on Kalshi's regulated infrastructure,
+                            we help investors surface high-potential opportunities earlier through
+                            real-time market signals from domain experts.
                         </div>
                     </div>
                     <div className="relative flex-1 w-full h-full">
@@ -64,7 +64,7 @@ export default function ClientOverview() {
 
                 <div className="flex items-center justify-center gap-x-5 mt-6">
                     <Button size={'lg'} onClick={() => router.push(`/playground/${uuid()}`)}>
-                        <span className="font-semibold">Start generating</span>
+                        <span className="font-semibold">Explore Markets</span>
                     </Button>
                     <Button
                         size={'lg'}

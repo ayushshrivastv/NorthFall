@@ -27,28 +27,28 @@ interface BentoCardProps {
 const features: Feature[] = [
     {
         id: 'secure',
-        title: 'Isolated Execution',
+        title: 'Kalshi Integration',
         description:
-            'Each workspace runs in its own container. Your contracts are compiled and tested in a secure environment with zero interference.',
+            'Built on Kalshi\'s regulated prediction market infrastructure. All market creation, trading, and settlement powered by Kalshi\'s APIs.',
         icon: RiShieldFill,
-        accent: '#6c44fc',
+        accent: '#E50914',
         span: 'col-span-2 row-span-2',
         delay: 0.1,
     },
     {
         id: 'instant',
-        title: 'Real-time Builds',
-        description: 'Watch your Rust code compile as you type. No waiting, no context switching.',
+        title: 'Real-time Signals',
+        description: 'Watch market prices update live. Programmatically aggregated data from expert trades.',
         icon: RiFlightLandFill,
-        accent: '#9679ffea',
+        accent: '#ff4757',
         span: 'col-span-2 row-span-1',
         delay: 0.2,
     },
     {
         id: 'anchor',
-        title: 'Native Anchor',
+        title: 'Social Trading',
         description:
-            'Full Anchor framework support out of the box. All dependencies, all tools, zero configuration.',
+            'Embedded link previews inspired by Solana blinks. Trade on startups directly from your social feed.',
         icon: RiCodeSSlashFill,
         accent: '#1c1d20',
         span: 'col-span-2 row-span-1',
@@ -56,29 +56,29 @@ const features: Feature[] = [
     },
     {
         id: 'terminal',
-        title: 'Built-in Terminal',
+        title: 'Market Dashboard',
         description:
-            'Run commands, check logs, debug—everything you need without leaving the browser.',
+            'View aggregated positions, prices, and rankings—everything you need to spot opportunities.',
         icon: RiTerminalBoxFill,
-        accent: '#6c44fc',
+        accent: '#E50914',
         span: 'col-span-1 row-span-1',
         delay: 0.4,
     },
     {
         id: 'deps',
-        title: 'Pre-loaded',
-        description: 'Cargo, rustc, Anchor CLI—all ready when you are.',
+        title: 'Expert Insight',
+        description: 'Domain experts, operators, and builders putting economic weight behind their views.',
         icon: RiBox3Fill,
-        accent: '#9679ffea',
+        accent: '#ff4757',
         span: 'col-span-1 row-span-1',
         delay: 0.5,
     },
     {
         id: 'deploy',
-        title: 'Ship Fast',
-        description: 'From code to chain in minutes. Deploy to any Solana network with confidence.',
+        title: 'Objective Outcomes',
+        description: 'Markets tied to verifiable milestones. Funding rounds, revenue targets, product launches.',
         icon: RiRocketFill,
-        accent: '#6c44fc',
+        accent: '#E50914',
         span: 'col-span-2 row-span-1',
         delay: 0.6,
     },
@@ -95,7 +95,7 @@ function BentoCard({ feature }: BentoCardProps) {
                 className="h-full rounded-[4px] p-6 transition-all duration-300 hover:scale-[1.02] cursor-pointer relative overflow-hidden"
                 style={{
                     backgroundColor: isDark ? feature.accent : '#fdf9f0',
-                    border: isDark ? 'none' : '1px solid rgba(108, 68, 252, 0.1)',
+                    border: isDark ? 'none' : '1px solid rgba(229, 9, 20, 0.1)',
                 }}
             >
                 <div
@@ -110,11 +110,11 @@ function BentoCard({ feature }: BentoCardProps) {
                         className="w-12 h-12 rounded-[4px] flex items-center justify-center mb-4 transition-transform duration-300 group-hover:scale-110 shrink-0"
                         style={{
                             backgroundColor: isDark
-                                ? 'rgba(150, 121, 255, 0.15)'
-                                : 'rgba(108, 68, 252, 0.08)',
+                                ? 'rgba(255, 71, 87, 0.15)'
+                                : 'rgba(229, 9, 20, 0.08)',
                         }}
                     >
-                        <Icon size={24} style={{ color: isDark ? '#9679ffea' : feature.accent }} />
+                        <Icon size={24} style={{ color: isDark ? '#ff4757' : feature.accent }} />
                     </div>
 
                     <div className="flex-1 text-left">
@@ -138,7 +138,7 @@ function BentoCard({ feature }: BentoCardProps) {
                     {isLarge && (
                         <div
                             className="mt-4 flex items-center gap-2 text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity"
-                            style={{ color: isDark ? '#9679ffea' : feature.accent }}
+                            style={{ color: isDark ? '#ff4757' : feature.accent }}
                         >
                             <span>Explore</span>
                             <span className="group-hover:translate-x-1 transition-transform">
@@ -156,10 +156,9 @@ export default function ClientE2BBento() {
     return (
         <div className="w-full rounded-[4px]">
             <div className="mb-4 text-left bg-primary p-6 rounded-[4px]">
-                <h2 className="text-5xl font-bold mb-4 tracking-tight">NorthFall Runtime</h2>
+                <h2 className="text-5xl font-bold mb-4 tracking-tight">NorthFall Platform</h2>
                 <p className="text-lg max-w-2xl">
-                    A sandboxed development environment built for Anchor smart contracts. Write,
-                    compile, test, and deploy—all in one place.
+                    A prediction market platform built for startup discovery. Browse markets, trade on outcomes, and surface high-potential opportunities through expert signals.
                 </p>
             </div>
 
