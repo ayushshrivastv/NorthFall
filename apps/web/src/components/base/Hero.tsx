@@ -73,6 +73,22 @@ export default function Hero({ inputRef }: HeroProps) {
                     </motion.div>
 
                     <HighlighterTicker />
+
+                    {/* Kalshi API Badge */}
+                    <motion.div
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.8, duration: 0.5 }}
+                        className="mb-4 flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-primary/10 to-primary/5 border border-primary/20 backdrop-blur-sm"
+                    >
+                        <div className="flex items-center gap-2">
+                            <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
+                            <span className="text-xs md:text-sm font-semibold text-light/90 tracking-wide">
+                                Built on Kalshi API
+                            </span>
+                        </div>
+                    </motion.div>
+
                     <DashboardTextAreaComponent inputRef={inputRef} />
                     <ActionTickers />
                 </motion.div>
