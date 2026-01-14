@@ -1,0 +1,10 @@
+{
+  "extends": "@northfall/typescript-config/base.json",
+  "include": [
+    "src/**/*"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist"
+  ]
+}
