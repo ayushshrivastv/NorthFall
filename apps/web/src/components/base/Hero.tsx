@@ -77,18 +77,18 @@ export default function Hero({ inputRef }: HeroProps) {
                     <ActionTickers />
                 </motion.div>
 
-                <div className="absolute bottom-2 left-0 md:bottom-12 md:left-10 text-[10px] md:text-[18px]">
-                    <div className="md:max-w-2xl max-w-sm flex flex-col justify-start items-start text-light font-semibold">
-                        <span>Powered by Kalshi Prediction Markets</span>
-                        <span className="">Turn Expert Insight into Investable Signal</span>
-                        <div className="flex items-end justify-center gap-x-2 md:gap-x-3 mt-2">
-                            <Button className="font-semibold text-xs md:text-base !px-4 md:!px-6 rounded-[4px]">
+                <div className="absolute bottom-4 left-4 md:bottom-8 md:left-8 text-[10px] md:text-[16px] z-20 max-w-[90%] md:max-w-md">
+                    <div className="flex flex-col justify-start items-start text-light font-semibold bg-black/30 backdrop-blur-sm p-3 md:p-4 rounded-lg border border-white/10">
+                        <span className="text-xs md:text-sm">Powered by Kalshi Prediction Markets</span>
+                        <span className="text-[10px] md:text-xs font-normal text-light/80 mt-1">Turn Expert Insight into Investable Signal</span>
+                        <div className="flex flex-wrap items-center gap-x-2 md:gap-x-3 gap-y-2 mt-3">
+                            <Button className="font-semibold text-[10px] md:text-sm !px-3 md:!px-4 !py-1.5 md:!py-2 rounded-[4px]">
                                 Explore Markets
-                                <RiCodeSSlashFill />
+                                <RiCodeSSlashFill className="ml-1" />
                             </Button>
                             <span
                                 onClick={() => router.push('/docs')}
-                                className="font-light text-primary tracking-wide md:text-xs border-b border-primary py-1 cursor-pointer"
+                                className="font-light text-primary tracking-wide text-[10px] md:text-xs border-b border-primary py-1 cursor-pointer hover:text-primary/80 transition-colors"
                             >
                                 Read Our Docs
                             </span>
