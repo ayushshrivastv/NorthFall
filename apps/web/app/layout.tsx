@@ -8,22 +8,22 @@ import WalletProviders from '@/src/providers/WalletProviders';
 import { Toaster } from 'sonner';
 
 export const metadata: Metadata = {
-    title: 'Northfall',
+    title: 'NorthFall',
     description:
-        'Northfall is an AI-powered platform for building and deploying Solana smart contracts with Anchor, end-to-end.',
+        'NorthFall turns expert insight into market-driven startup discovery. Trade on early-stage companies through prediction markets and surface high-quality investment opportunities.',
     metadataBase: new URL('https://northfall.dev'),
     openGraph: {
-        title: 'Northfall',
+        title: 'NorthFall',
         description:
-            'Northfall is an AI-powered platform for building and deploying Solana smart contracts with Anchor, end-to-end.',
+            'Turn expert insight into investable signal. Discover high-potential startups through prediction markets powered by domain experts.',
         url: 'https://northfall.dev',
-        siteName: 'Northfall',
+        siteName: 'NorthFall',
         images: [
             {
                 url: '/images/northfall-dashboard.png',
                 width: 1200,
                 height: 630,
-                alt: 'Northfall Preview',
+                alt: 'NorthFall Preview',
             },
         ],
         type: 'website',
@@ -31,9 +31,9 @@ export const metadata: Metadata = {
 
     twitter: {
         card: 'summary_large_image',
-        title: 'Northfall | Smart Contract Generator',
+        title: 'NorthFall | Prediction Markets for Startup Discovery',
         description:
-            'Northfall is an AI-powered platform for building and deploying Solana smart contracts with Anchor, end-to-end.',
+            'Turn expert insight into investable signal. Discover high-potential startups through prediction markets powered by domain experts.',
         images: ['/images/northfall-dashboard.png'],
     },
 };

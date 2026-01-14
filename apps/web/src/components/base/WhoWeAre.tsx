@@ -7,22 +7,22 @@ import DonutComponent from '../ui/DonutComponent';
 
 const productMetaOptions = [
     {
-        title: 'CodeGenie',
-        subtitle: 'Magic contract creation',
+        title: 'Market Discovery',
+        subtitle: 'Browse prediction markets',
         description:
-            'CodeGenie lets you write full Solana smart contracts using plain English. It automatically generates complete Anchor programs with all instructions, accounts, and serialization logic, saving you hours of manual coding while ensuring correctness and adherence to Solana best practices.',
+            'Explore prediction markets tied to early-stage startups with objective, time-bound outcomes. See what domain experts are trading on and where the strongest signals are emerging across different sectors and stages.',
     },
     {
-        title: 'EditWizard',
-        subtitle: 'Instant tweaks',
+        title: 'Social Trading',
+        subtitle: 'Trade from your feed',
         description:
-            'EditWizard allows you to easily modify existing smart contracts through chat or direct code edits. It intelligently maintains Anchor conventions, syntax, and safety checks, while applying your requested changes so you can improve or refactor programs confidently and quickly.',
+            'Participate in markets directly from social feeds through embedded link previews inspired by Solana blinks. When you see a startup discussion, trade on it instantly without leaving the conversation—turning social attention into economic signal.',
     },
     {
-        title: 'DeployBot',
-        subtitle: 'One-click launch',
+        title: 'Signal Dashboard',
+        subtitle: 'Market-driven rankings',
         description:
-            'DeployBot simplifies deploying and interacting with your Solana programs. With a single click, it compiles, deploys, and generates IDLs and client SDKs, letting you instantly test and interact with your program without leaving the platform or writing extra scripts.',
+            'View aggregated market positions and prices programmatically pulled via Kalshi\'s APIs. Get clear, investor-ready rankings that surface high-potential opportunities earlier, powered by real economic weight from domain experts.',
     },
 ];
 
@@ -31,7 +31,7 @@ export default function WhoWeAre() {
 
     return (
         <>
-            <ArchitectureTitleComponent firstText="NORTHFALL's" secondText="ARCHITECTURE" />
+            <ArchitectureTitleComponent firstText="NORTHFALL's" secondText="MARKET FLOW" />
             <section ref={containerRef} className="bg-[#0a0c0d] w-screen">
                 <div className="grid md:grid-cols-2 gap-0">
                     <div className="h-screen hidden md:sticky top-0 md:flex items-center justify-center bg-[#0a0c0d]">

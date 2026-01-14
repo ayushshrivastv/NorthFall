@@ -66,32 +66,32 @@ export default function Faq() {
 
     const faqs: FaqData[] = [
         {
-            question: 'What is Northfall?',
-            answer: 'Northfall is an AI-powered platform for building, editing, deploying, and interacting with Rust-based smart contracts on Solana using Anchor. It simplifies the entire smart contract workflow from generation to frontend integration.',
+            question: 'What is NorthFall?',
+            answer: 'NorthFall is a prediction market platform that helps investors discover high-potential startups earlier. We turn expert insight into market-driven signals by letting domain experts trade on early-stage companies through Kalshi-powered prediction markets.',
         },
         {
-            question: 'Do I need to know Rust to use this platform?',
-            answer: 'No! Our AI can generate Anchor contracts from natural language descriptions. However, understanding Rust and Solana concepts will help you customize and optimize your contracts more effectively.',
+            question: 'How do prediction markets help find startups?',
+            answer: 'Prediction markets let people with real domain knowledge put economic weight behind their views on startup outcomes. Market prices aggregate these positions into clear signals that surface stronger opportunities earlier than traditional sourcing methods.',
         },
         {
-            question: 'What types of contracts can I build?',
-            answer: 'You can build various Solana programs including token contracts, NFT contracts, DeFi programs, escrow systems, and payment programs. We provide templates for common use cases and support custom contract generation.',
+            question: 'What is Kalshi integration?',
+            answer: 'NorthFall is built on Kalshi\'s regulated prediction market infrastructure and APIs. We programmatically create markets, pull trading data, and aggregate positions to generate investor-ready rankings—all powered by Kalshi\'s platform.',
         },
         {
-            question: 'Can I deploy to mainnet?',
-            answer: 'Yes! Northfall supports one-click deployment to Solana Devnet, Testnet, and Mainnet. We also provide CLI commands and track deployed program IDs for easy management.',
+            question: 'Who can participate in markets?',
+            answer: 'Anyone with domain expertise—operators, builders, investors, or industry insiders—can participate. If you have on-the-ground insight about startups, sectors, or trends, you can trade on objective outcomes and contribute to market signals.',
         },
         {
-            question: 'Does it generate client code for my contract?',
-            answer: 'Absolutely! The platform automatically generates TypeScript/JavaScript client SDKs with typed functions for each instruction, wallet integration, and helper functions for PDAs and transactions.',
+            question: 'How are outcomes determined?',
+            answer: 'Markets are tied to objective, time-bound outcomes like funding milestones, revenue targets, or product launches. These outcomes are verifiable and resolve based on publicly available information or official announcements.',
         },
         {
-            question: 'What about security?',
-            answer: 'Our AI assistant warns about known vulnerabilities like unchecked seeds and missing payer checks. We also provide an AI-powered security checklist covering seeds, admin restrictions, and rent exemption checks.',
+            question: 'What makes this different from traditional VC sourcing?',
+            answer: 'Traditional sourcing relies on manual scouting and personal networks. NorthFall captures real-time expert insight through economic signals, making high-quality knowledge visible, scalable, and properly rewarded—similar to how prediction markets surface information in other domains.',
         },
         {
-            question: 'How do I test my contracts?',
-            answer: 'The platform auto-generates Anchor test scripts and allows you to simulate transactions in-browser or on devnet before deployment. You can also test frontend integrations with our interactive sandbox.',
+            question: 'How do social trading links work?',
+            answer: 'Inspired by Solana blinks, we embed markets directly into social feeds via link previews. When you see a startup discussion on Twitter or elsewhere, you can trade on it instantly without leaving the feed—turning social attention into economic signal.',
         },
     ];
 

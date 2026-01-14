@@ -8,48 +8,49 @@ import { TbAnchor } from 'react-icons/tb';
 import { Highlighter } from '@/src/components/ui/highlighter';
 import { cn } from '@/src/lib/utils';
 
+
 const featureData = [
     {
-        topTitle: 'AI-POWERED',
-        centerTitle: 'Smart Contracts',
-        bottomTitle: 'Rust & Anchor',
-        description: 'Generate production-ready contracts from natural language',
+        topTitle: 'MARKET',
+        centerTitle: 'Discovery',
+        bottomTitle: 'Browse Markets',
+        description: 'Explore prediction markets on early-stage startups with real outcomes',
         icon: FaRust,
         color: '#CE422B',
         gradient: 'from-red-500/20 to-orange-500/20',
     },
     {
-        topTitle: 'INSTANT',
-        centerTitle: 'Deploy',
-        bottomTitle: 'One-Click',
-        description: 'Deploy to Devnet, Testnet, or Mainnet instantly',
+        topTitle: 'SOCIAL',
+        centerTitle: 'Trading',
+        bottomTitle: 'Instant Participation',
+        description: 'Trade directly from social feeds via embedded link previews',
         icon: FaBolt,
         color: '#FFC400',
         gradient: 'from-yellow-500/20 to-amber-500/20',
     },
     {
-        topTitle: 'COMPLETE',
-        centerTitle: 'NORTHFALL',
-        bottomTitle: 'Full Stack',
-        description: 'From contract to client SDK to frontend boilerplate',
+        topTitle: 'SIGNAL',
+        centerTitle: 'AGGREGATION',
+        bottomTitle: 'Market-Driven',
+        description: 'Turn expert positions into clear, investor-ready rankings',
         icon: LiaServicestack,
         color: '#E50914',
         gradient: 'from-red-500/20 to-rose-500/20',
     },
     {
-        topTitle: 'ANCHOR',
-        centerTitle: 'Framework',
-        bottomTitle: 'Best Practices',
-        description: 'Built-in security checks and Anchor conventions',
+        topTitle: 'KALSHI',
+        centerTitle: 'Integration',
+        bottomTitle: 'Regulated Markets',
+        description: 'Built on Kalshi\'s prediction market infrastructure and APIs',
         icon: TbAnchor,
         color: '#106DE1',
         gradient: 'from-blue-500/20 to-cyan-500/20',
     },
     {
-        topTitle: 'SECURE',
-        centerTitle: 'Security',
-        bottomTitle: 'AI Audits',
-        description: 'Automated vulnerability detection and fixes',
+        topTitle: 'REAL-TIME',
+        centerTitle: 'Rankings',
+        bottomTitle: 'Live Signals',
+        description: 'Programmatically pulled market data for actionable insights',
         icon: FaShieldAlt,
         color: '#00C6A7',
         gradient: 'from-teal-500/20 to-emerald-500/20',
@@ -92,9 +93,9 @@ export default function Features() {
                 />
 
                 <div className="w-full md:max-w-[60%] md:text-5xl text-lg sm:text-2xl font-bold tracking-wider text-darkest md:leading-[1.2] relative text-center z-30">
-                    BECAUSE CODING SHOULDN&apos;T RUIN YOUR SLEEP SCHEDULE
+                    TURN EXPERT INSIGHT INTO INVESTABLE SIGNAL
                     <div className="absolute text-[10px] sm:text-[12px] md:text-[15px] -top-6 font-extralight w-full flex justify-center text-dark/70">
-                        fin-tastic features. zero-hassle.
+                        market-driven startup discovery
                     </div>
                 </div>
 
@@ -103,11 +104,11 @@ export default function Features() {
                     style={{ opacity: subtitleOpacity }}
                 >
                     <div className="mt-4 w-full flex justify-center text-[7px] sm:text-sm md:text-2xl tracking-widest text-dark font-semibold text-center px-4">
-                        Transform your blockchain ideas into&nbsp;
+                        Surface stronger opportunities earlier through{' '}
                         <Highlighter action="underline" color="#E50914">
-                            production-ready
+                            prediction markets
                         </Highlighter>
-                        &nbsp;contracts seamlessly.
+                        {' '}built on Kalshi.
                     </div>
                 </motion.div>
 

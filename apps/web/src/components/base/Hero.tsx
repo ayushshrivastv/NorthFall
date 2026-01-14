@@ -67,8 +67,8 @@ export default function Hero({ inputRef }: HeroProps) {
                         className="mb-3"
                     >
                         <h1 className="text-[28px] md:text-[60px] font-bold leading-tight bg-gradient-to-t flex flex-col from-neutral-700 via-neutral-300 to-neutral-200 bg-clip-text text-transparent">
-                            <span>Ship Solana Contracts</span>
-                            <span>in Minutes not Months</span>
+                            <span>Operators Know Things</span>
+                            <span>Before Investors Do</span>
                         </h1>
                     </motion.div>
 
@@ -79,11 +79,11 @@ export default function Hero({ inputRef }: HeroProps) {
 
                 <div className="absolute bottom-2 left-0 md:bottom-12 md:left-10 text-[10px] md:text-[18px]">
                     <div className="md:max-w-2xl max-w-sm flex flex-col justify-start items-start text-light font-semibold">
-                        <span>Powered by AI + Anchor</span>
-                        <span className="">Build Solana Smart Contracts 10x Faster</span>
+                        <span>Powered by Kalshi Prediction Markets</span>
+                        <span className="">Turn Expert Insight into Investable Signal</span>
                         <div className="flex items-end justify-center gap-x-2 md:gap-x-3 mt-2">
                             <Button className="font-semibold text-xs md:text-base !px-4 md:!px-6 rounded-[4px]">
-                                Explore Playground
+                                Explore Markets
                                 <RiCodeSSlashFill />
                             </Button>
                             <span

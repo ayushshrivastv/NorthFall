@@ -1,24 +1,15 @@
-import { motion } from 'framer-motion';
 import { Highlighter } from '@/src/components/ui/highlighter';
 
 export default function HighlighterTicker() {
     return (
-        <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.7, duration: 0.6 }}
-            className="text-[#a7a7a7] text-xs md:text-sm mb-6 font-mono tracking-normal md:tracking-wider"
-        >
+        <div className="text-[10px] md:text-[14px] text-neutral-400 font-normal tracking-wide mb-4">
             NorthFall eats{' '}
             <span className="text-white">
                 <Highlighter action="highlight" padding={5} iterations={1} color="#E50914">
-                    months
+                    information asymmetry
                 </Highlighter>
-            </span>
-            . Ships in{' '}
-            <Highlighter action="underline" padding={0} color="#FFC412">
-                minutes
-            </Highlighter>
-        </motion.p>
+            </span>{' '}
+            for breakfast
+        </div>
     );
 }
