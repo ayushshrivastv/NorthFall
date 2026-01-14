@@ -47,11 +47,11 @@ function LoginLeftContent() {
                         <div
                             key={i}
                             className={cn(
-                                `text-[${l.color}] text-xl h-6 md:h-10 w-6 md:w-10 p-1 md:p-2 border-[0.5px] md:border border-neutral-500 rounded-[8px]`,
+                                'text-xl h-6 md:h-10 w-6 md:w-10 p-1 md:p-2 border-[0.5px] md:border border-neutral-500 rounded-[8px]',
                                 'flex justify-center items-center',
                             )}
                         >
-                            <l.logo className={cn('size-4 md:size-5')} />
+                            <l.logo className={cn('size-4 md:size-5')} style={{ color: l.color }} />
                         </div>
                     ))}
                 </div>
