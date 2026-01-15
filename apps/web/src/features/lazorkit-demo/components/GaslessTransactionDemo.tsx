@@ -16,7 +16,7 @@ import { toast } from 'sonner';
 export default function GaslessTransactionDemo() {
     const { signAndSendTransaction, smartWalletPubkey, isConnected, addTransaction, handleError } =
         useLazorKitDemo();
-    const [recipient, setRecipient] = useState(LAZORKIT_CONFIG.demoRecipient);
+    const [recipient, setRecipient] = useState<string>(LAZORKIT_CONFIG.demoRecipient);
     const [amount, setAmount] = useState(0.01);
     const [isSending, setIsSending] = useState(false);
     const [lastSignature, setLastSignature] = useState<string | null>(null);
