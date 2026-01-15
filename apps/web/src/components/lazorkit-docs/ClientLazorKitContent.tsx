@@ -63,14 +63,23 @@ function OverviewSection() {
 
             <div className="flex items-center gap-x-5">
                 <Button size={'lg'} onClick={() => router.push('/')}>
-                    <span className="font-semibold">Try Demo</span>
+                    <span className="font-semibold text-dark">Try Demo</span>
                 </Button>
                 <Button
                     size={'lg'}
                     variant="outline"
+                    className="border-light/20 hover:bg-light/10"
+                    onClick={() => window.open('https://youtu.be/KPpSZQnQms4', '_blank')}
+                >
+                    <span className="font-semibold text-light">Watch Demo Video</span>
+                </Button>
+                <Button
+                    size={'lg'}
+                    variant="outline"
+                    className="border-light/20 hover:bg-light/10"
                     onClick={() => window.open('https://docs.lazorkit.com', '_blank')}
                 >
-                    <span className="font-semibold">Official Docs</span>
+                    <span className="font-semibold text-light">Official Docs</span>
                 </Button>
             </div>
 
