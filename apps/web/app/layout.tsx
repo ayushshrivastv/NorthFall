@@ -6,6 +6,7 @@ import type { Metadata } from 'next';
 // import SessionSetter from '@/src/lib/SessionSeter';
 import WalletProviders from '@/src/providers/WalletProviders';
 import { Toaster } from 'sonner';
+import BufferPolyfill from '@/src/components/utility/BufferPolyfill';
 
 export const metadata: Metadata = {
     title: 'NorthFall',
@@ -49,6 +50,7 @@ export default async function RootLayout({
     return (
         <html lang="en">
             <body className={`antialiased bg-darkest`} suppressHydrationWarning>
+                <BufferPolyfill />
                 <Toaster
                     theme="dark"
                     closeButton

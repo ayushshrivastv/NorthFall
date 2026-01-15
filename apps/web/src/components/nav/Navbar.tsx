@@ -11,17 +11,20 @@ import LoginModal from '../utility/LoginModal';
 import { MdHomeFilled } from 'react-icons/md';
 import AppLogo from '../tickers/AppLogo';
 import { Tabs, TabsList, TabsTrigger } from '../ui/tabs';
+import LazorKitDemoModal from '@/src/features/lazorkit-demo/components/LazorKitDemoModal';
 
 const navItems = [
     { name: 'Features', link: '#feature' },
     { name: 'Pricing', link: '#pricing' },
     { name: 'Faq', link: '#faq' },
     { name: 'About', link: '#about' },
+    { name: 'LazorKit', link: '#lazorkit-demo', isDemo: true },
 ];
 
 export default function Navbar() {
     const router = useRouter();
     const [openLoginModal, setOpenLoginModal] = useState<boolean>(false);
+    const [openLazorKitDemo, setOpenLazorKitDemo] = useState<boolean>(false);
     const [isNavbarVisible, setIsNavbarVisible] = useState<boolean>(true);
     const [lastScrollY, setLastScrollY] = useState<number>(0);
     const { session } = useUserSessionStore();
@@ -77,8 +80,12 @@ export default function Navbar() {
                                     key={item.name}
                                     value={item.name.toLowerCase()}
                                     onClick={() => {
-                                        const element = document.querySelector(item.link);
-                                        element?.scrollIntoView({ behavior: 'smooth' });
+                                        if (item.isDemo) {
+                                            setOpenLazorKitDemo(true);
+                                        } else {
+                                            const element = document.querySelector(item.link);
+                                            element?.scrollIntoView({ behavior: 'smooth' });
+                                        }
                                     }}
                                     className="data-[state=active]:bg-primary data-[state=active]:text-white text-light/70 hover:text-light transition-colors"
                                 >
@@ -107,6 +114,7 @@ export default function Navbar() {
                 </div>
             </div>
             <LoginModal opensignInModal={openLoginModal} setOpenSignInModal={setOpenLoginModal} />
+            <LazorKitDemoModal isOpen={openLazorKitDemo} setIsOpen={setOpenLazorKitDemo} />
         </>
     );
 }
