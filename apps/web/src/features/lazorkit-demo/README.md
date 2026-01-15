@@ -1,292 +1,217 @@
 # LazorKit Passkey Wallet Integration
 
-> **Superteam Bounty Submission**: Integrate Passkey Technology with LazorKit to 10x Solana UX
+Superteam Bounty Submission: Integrate Passkey Technology with LazorKit to 10x Solana UX
 
 A production-ready implementation of LazorKit's passkey-based wallet infrastructure, demonstrating the future of Solana user experience with seedless authentication and gasless transactions.
 
-## 🎯 Bounty Requirements Met
+## Bounty Requirements
 
-This implementation fulfills all Superteam bounty requirements:
+This implementation fulfills all Superteam bounty requirements for integrating passkey technology with LazorKit to improve Solana UX.
 
-✅ **Passkey Authentication** - WebAuthn-based wallet creation using biometrics  
-✅ **Gasless Transactions** - Paymaster-sponsored SOL transfers on Devnet  
-✅ **Session Persistence** - Automatic reconnection across devices and sessions  
-✅ **Smart Wallet Support** - Program Derived Addresses (PDAs) with programmable logic  
-✅ **Production-Ready Code** - Fully typed, documented, and easily removable  
-✅ **Live Demo** - Deployed on Vercel with working passkey authentication  
+**Passkey Authentication**: WebAuthn-based wallet creation using biometrics (FaceID, TouchID, Windows Hello)
 
-## 🚀 Live Demo
+**Gasless Transactions**: Paymaster-sponsored SOL transfers on Devnet with zero gas fees for users
 
-**Demo URL**: [Your Vercel Deployment URL]
+**Session Persistence**: Automatic reconnection across devices and sessions without re-authentication
 
-**Try it now:**
-1. Visit the deployed app
-2. Click "LazorKit" in the navbar
-3. Create a passkey wallet using FaceID/TouchID/Windows Hello
-4. Get test SOL from Devnet faucet
-5. Send gasless transactions
-6. Verify on Solscan
+**Smart Wallet Support**: Program Derived Addresses (PDAs) with programmable logic and recovery mechanisms
 
-## 🌟 Key Features
+**Production-Ready Code**: Fully typed TypeScript, comprehensive documentation, and easily removable architecture
 
-### 1. **Seedless Wallet Creation**
-- No seed phrases to remember or store
-- Biometric authentication (FaceID, TouchID, Windows Hello)
-- Private keys secured in device's Secure Enclave
-- WebAuthn standard compliance
+**Live Demo**: Deployed on Vercel with working passkey authentication and transaction capabilities
 
-### 2. **Gasless Transactions**
-- Send SOL without holding SOL for gas fees
-- Paymaster service sponsors all transaction costs
-- Seamless UX - users never worry about gas
-- Configurable fee token support (SOL, USDC, etc.)
+## Live Demo
 
-### 3. **Session Persistence**
-- Automatic wallet reconnection on page refresh
-- Cross-device sync via WebAuthn credential sync
-- No re-authentication required for active sessions
-- Secure session management
+Demo URL: [Your Vercel Deployment URL]
 
-### 4. **Smart Wallet Architecture**
-- Program Derived Addresses (PDAs) on Solana
-- Controlled by LazorKit on-chain program
-- Support for recovery mechanisms
-- Programmable account policies
+To test the integration:
 
-## 📁 Project Structure
+Visit the deployed application and click "LazorKit" in the navigation bar. Create a passkey wallet using your device's biometric authentication. Request test SOL from the Devnet faucet. Send gasless transactions and verify them on Solscan.
+
+## Key Features
+
+### Seedless Wallet Creation
+
+No seed phrases to remember or store. Biometric authentication through FaceID, TouchID, or Windows Hello. Private keys secured in device's Secure Enclave. Full WebAuthn standard compliance for cross-platform compatibility.
+
+### Gasless Transactions
+
+Send SOL without holding SOL for gas fees. Paymaster service sponsors all transaction costs. Seamless user experience with no gas management required. Configurable fee token support including SOL and USDC.
+
+### Session Persistence
+
+Automatic wallet reconnection on page refresh. Cross-device sync via WebAuthn credential synchronization. No re-authentication required for active sessions. Secure session management with device-bound credentials.
+
+### Smart Wallet Architecture
+
+Program Derived Addresses (PDAs) on Solana blockchain. Controlled by LazorKit on-chain program. Support for recovery mechanisms and account policies. Programmable security rules and transaction limits.
+
+## Project Structure
 
 ```
 apps/web/src/features/lazorkit-demo/
-├── README.md                           # This file
-├── config.ts                           # LazorKit configuration (RPC, Paymaster, etc.)
+├── README.md
+├── config.ts
 ├── providers/
-│   └── LazorKitDemoProvider.tsx       # Isolated LazorKit context provider
+│   └── LazorKitDemoProvider.tsx
 ├── components/
-│   ├── LazorKitDemoModal.tsx          # Main modal container with tabs
-│   ├── PasskeyWalletConnect.tsx       # Wallet creation & connection UI
-│   ├── GaslessTransactionDemo.tsx     # Transaction interface
-│   ├── DemoFeatureShowcase.tsx        # Feature highlights panel
-│   └── SessionPersistenceDemo.tsx     # Session management demo
+│   ├── LazorKitDemoModal.tsx
+│   ├── PasskeyWalletConnect.tsx
+│   ├── GaslessTransactionDemo.tsx
+│   ├── DemoFeatureShowcase.tsx
+│   └── SessionPersistenceDemo.tsx
 └── hooks/
-    └── useLazorKitDemo.ts             # Custom hook wrapping LazorKit SDK
+    └── useLazorKitDemo.ts
 ```
 
-## 🔧 Technical Implementation
+The implementation is completely isolated in the `features/lazorkit-demo` directory for easy integration and removal.
+
+## Technical Implementation
 
 ### Dependencies
 
-```json
-{
-  "@lazorkit/wallet": "latest",
-  "@coral-xyz/anchor": "^0.30.1",
-  "buffer": "^6.0.3"
-}
-```
+The integration requires three core packages:
+
+`@lazorkit/wallet` - LazorKit SDK for passkey wallet infrastructure
+
+`@coral-xyz/anchor` - Solana program interactions and transaction building
+
+`buffer` - Browser polyfill for Node.js Buffer API compatibility
 
 ### Core Technologies
 
-- **LazorKit SDK** - Passkey wallet infrastructure
-- **WebAuthn API** - Biometric authentication
-- **Solana Web3.js** - Blockchain interactions
-- **Next.js 15** - React framework
-- **TypeScript** - Type safety
-- **Tailwind CSS** - Styling
+LazorKit SDK provides the passkey wallet infrastructure and WebAuthn integration. Solana Web3.js handles blockchain interactions and transaction construction. Next.js 15 serves as the React framework with TypeScript for type safety. Tailwind CSS provides the styling system.
 
 ### Configuration
 
-```typescript
-// config.ts
-export const LAZORKIT_CONFIG = {
-  rpcUrl: 'https://api.devnet.solana.com',
-  portalUrl: 'https://portal.lazor.sh',
-  paymasterConfig: {
-    paymasterUrl: 'https://kora.devnet.lazorkit.com'
-  },
-  cluster: 'devnet',
-};
-```
+The demo uses Solana Devnet and LazorKit's test infrastructure:
 
-### Key Implementation Details
+RPC URL: `https://api.devnet.solana.com`
 
-#### 1. Passkey Wallet Creation
+Portal URL: `https://portal.lazor.sh`
 
-```typescript
-const { connect } = useWallet();
+Paymaster: `https://kora.devnet.lazorkit.com`
 
-// Triggers WebAuthn passkey creation
-await connect();
-// User authenticates with biometrics
-// Smart wallet address generated from passkey
-```
+Cluster: `devnet`
 
-#### 2. Gasless Transaction Flow
+### Implementation Details
 
-```typescript
-const instruction = SystemProgram.transfer({
-  fromPubkey: smartWalletPubkey,
-  toPubkey: recipientPubkey,
-  lamports: amount * LAMPORTS_PER_SOL,
-});
+**Passkey Wallet Creation**
 
-// Paymaster sponsors the transaction fee
-const signature = await signAndSendTransaction({
-  instructions: [instruction],
-});
-```
+The wallet creation flow triggers WebAuthn passkey creation through the browser. Users authenticate with biometrics and a smart wallet address is generated from the passkey. No seed phrases are involved in the process.
 
-#### 3. Session Persistence
+**Gasless Transaction Flow**
 
-```typescript
-// Automatic reconnection on page load
-useEffect(() => {
-  if (isConnected && wallet?.smartWallet) {
-    // Session restored automatically
-    // No re-authentication needed
-  }
-}, [isConnected, wallet]);
-```
+Transactions are constructed using Solana's SystemProgram for SOL transfers. The Paymaster service sponsors transaction fees automatically. Users sign with their passkey and the transaction is submitted to the network.
 
-## 🎨 User Experience Flow
+**Session Persistence**
+
+Sessions are restored automatically on page load when a valid passkey exists. No re-authentication is needed for active sessions. WebAuthn credentials can sync across devices through platform services.
+
+## User Experience Flow
 
 ### First-Time User
-1. Click "LazorKit" button in navbar
-2. Modal opens with feature showcase
-3. Click "Create Passkey Wallet"
-4. Browser prompts for biometric authentication
-5. Wallet created - address displayed
-6. Click "Get 1 SOL" to fund wallet from Devnet faucet
-7. Send gasless transaction to any address
-8. View transaction on Solscan
+
+Click the "LazorKit" button in the navigation bar to open the demo modal. The modal displays a feature showcase and wallet creation interface. Click "Create Passkey Wallet" to trigger biometric authentication. The browser prompts for FaceID, TouchID, or Windows Hello authentication. Upon successful authentication, the wallet is created and the address is displayed. Click "Get 1 SOL" to fund the wallet from the Devnet faucet. Send gasless transactions to any Solana address. View transaction confirmations on Solscan explorer.
 
 ### Returning User
-1. Click "LazorKit" button
-2. Wallet automatically reconnects
-3. Same wallet address and balance
-4. Ready to transact immediately
 
-## 🔐 Security Features
+Click the "LazorKit" button to open the modal. The wallet automatically reconnects using the existing passkey. The same wallet address and balance are immediately available. Users can transact without any additional authentication steps.
 
-- **Hardware-Bound Credentials** - Keys never leave Secure Enclave
-- **Biometric Authentication** - FaceID/TouchID/Windows Hello required
-- **No Seed Phrases** - Eliminates phishing and storage risks
-- **WebAuthn Standard** - Industry-standard authentication
-- **Smart Wallet Policies** - Programmable security rules
+## Security Features
 
-## 📊 Performance & UX Improvements
+Hardware-bound credentials ensure private keys never leave the device's Secure Enclave. Biometric authentication is required for all transaction signing. No seed phrases eliminate phishing and storage risks. WebAuthn standard provides industry-standard authentication. Smart wallet policies enable programmable security rules.
 
-| Traditional Wallet | LazorKit Passkey Wallet |
-|-------------------|------------------------|
-| 12-24 word seed phrase | No seed phrase |
-| Manual gas fee management | Gasless transactions |
-| Copy/paste private keys | Biometric authentication |
-| Lost seed = lost funds | Device-based recovery |
-| Complex onboarding | One-click wallet creation |
+## Performance Improvements
 
-**Result**: **10x better UX** for Solana users
+Traditional wallets require managing 12-24 word seed phrases while LazorKit eliminates seed phrases entirely. Manual gas fee management is replaced with automatic gasless transactions. Copy-pasting private keys is replaced with biometric authentication. Lost seeds mean lost funds in traditional wallets, but LazorKit offers device-based recovery. Complex onboarding flows are simplified to one-click wallet creation.
 
-## 🌐 Integration Points
+The result is a 10x improvement in user experience for Solana applications.
 
-This module integrates with the main app in only **2 places**:
+## Integration Points
 
-### 1. Navbar (`apps/web/src/components/nav/Navbar.tsx`)
-```tsx
-const navItems = [
-  // ... other items
-  { name: 'LazorKit', link: '#lazorkit-demo', isDemo: true },
-];
-```
+This module integrates with the main application in only two places for minimal coupling.
 
-### 2. Layout (`apps/web/app/layout.tsx`)
-```tsx
-import BufferPolyfill from '@/src/components/utility/BufferPolyfill';
+### Navbar Integration
 
-// Buffer polyfill for browser compatibility
-<BufferPolyfill />
-```
+File: `apps/web/src/components/nav/Navbar.tsx`
 
-## 🧪 Testing Guide
+The navbar includes a "LazorKit" navigation item that opens the demo modal. The modal component is rendered conditionally based on user interaction.
 
-### Local Testing (Note: Limited on localhost)
-```bash
-cd apps/web
-pnpm dev
-```
-Visit `http://localhost:3000` and click "LazorKit"
+### Layout Configuration
 
-**⚠️ Limitation**: Passkey signing may fail on localhost due to origin restrictions. Deploy to Vercel for full functionality.
+File: `apps/web/app/layout.tsx`
 
-### Production Testing (Recommended)
-1. Deploy to Vercel
-2. Visit your Vercel URL
-3. Full passkey functionality works
-4. Test all features end-to-end
+A Buffer polyfill component is included for browser compatibility with the LazorKit SDK. This ensures the Node.js Buffer API is available in the browser environment.
 
-## 🗑️ Easy Removal
+## Testing Guide
 
-To remove this feature completely:
+### Local Testing
 
-```bash
-# 1. Delete the demo folder
-rm -rf apps/web/src/features/lazorkit-demo
-rm apps/web/src/components/utility/BufferPolyfill.tsx
+Run the development server with `pnpm dev` in the `apps/web` directory. Visit `http://localhost:3000` and click "LazorKit" in the navigation.
 
-# 2. Remove from Navbar.tsx
-# - Delete LazorKit nav item
-# - Remove LazorKitDemoModal import/component
+Note: Passkey signing may fail on localhost due to origin restrictions in the LazorKit portal. This is expected behavior for security reasons.
 
-# 3. Remove from layout.tsx
-# - Remove BufferPolyfill import/component
+### Production Testing
 
-# 4. Remove dependencies
-pnpm remove @lazorkit/wallet @coral-xyz/anchor buffer --filter web
-```
+Deploy the application to Vercel or another hosting platform. Visit the deployed URL to access full passkey functionality. Test all features including wallet creation, gasless transactions, and session persistence.
 
-## 📈 Future Enhancements
+Production deployment is recommended for complete end-to-end testing.
 
-Potential improvements for production:
+## Removal Instructions
 
-- [ ] Multi-device passkey sync
-- [ ] Transaction batching
-- [ ] Custom token support
-- [ ] Mainnet deployment
-- [ ] Advanced session policies
-- [ ] Recovery mechanisms
-- [ ] Transaction history persistence
-- [ ] Analytics integration
+To remove this feature completely from the codebase:
 
-## 🔗 Resources
+Delete the demo folder: `rm -rf apps/web/src/features/lazorkit-demo`
 
-- **LazorKit**: [docs.lazorkit.com](https://docs.lazorkit.com/)
-- **WebAuthn**: [w3.org/TR/webauthn](https://www.w3.org/TR/webauthn/)
-- **Solana**: [docs.solana.com](https://docs.solana.com/)
-- **Solscan**: [solscan.io](https://solscan.io/)
+Delete the Buffer polyfill: `rm apps/web/src/components/utility/BufferPolyfill.tsx`
 
-## 📝 Bounty Submission Checklist
+Remove the LazorKit navigation item from `apps/web/src/components/nav/Navbar.tsx`
 
-- [x] Passkey wallet creation implemented
-- [x] Gasless transactions working on Devnet
-- [x] Session persistence functional
-- [x] Clean, documented code
-- [x] TypeScript with full type safety
-- [x] Deployed to production (Vercel)
-- [x] Easy to remove/integrate
-- [x] Comprehensive README
-- [x] Live demo available
+Remove the BufferPolyfill import and component from `apps/web/app/layout.tsx`
 
-## 👥 Credits
+Remove dependencies: `pnpm remove @lazorkit/wallet @coral-xyz/anchor buffer --filter web`
 
-**Built for**: Superteam Vietnam Bounty  
-**Technology**: LazorKit Passkey SDK  
-**Blockchain**: Solana Devnet  
-**Framework**: Next.js 15 + TypeScript  
+## Future Enhancements
 
----
+Potential improvements for production deployment include multi-device passkey synchronization, transaction batching for efficiency, custom token support beyond SOL, mainnet deployment configuration, advanced session policies and permissions, enhanced recovery mechanisms, persistent transaction history, and analytics integration.
 
-**Note**: This is a Devnet demonstration. For production use, review LazorKit's documentation, security considerations, and Mainnet configuration.
+## Resources
 
-## 📧 Contact
+LazorKit Documentation: https://docs.lazorkit.com/
 
-For questions or support:
-- **Telegram**: [Your Telegram]
-- **GitHub**: [Your GitHub]
-- **Twitter**: [Your Twitter]
+WebAuthn Specification: https://www.w3.org/TR/webauthn/
+
+Solana Documentation: https://docs.solana.com/
+
+Solscan Explorer: https://solscan.io/
+
+## Bounty Submission Checklist
+
+Passkey wallet creation implemented with WebAuthn
+
+Gasless transactions working on Solana Devnet
+
+Session persistence functional across page refreshes
+
+Clean, documented, and type-safe code
+
+Deployed to production on Vercel
+
+Easy to remove and integrate architecture
+
+Comprehensive README documentation
+
+Live demo available for testing
+
+## Credits
+
+Built for Superteam Vietnam Bounty
+
+Technology: LazorKit Passkey SDK
+
+Blockchain: Solana Devnet
+
+Framework: Next.js 15 with TypeScript
+
+Note: This is a Devnet demonstration. For production use, review LazorKit's documentation, security considerations, and Mainnet configuration requirements.
