@@ -10,7 +10,7 @@ The integration is built as an isolated feature module that can be easily added 
 
 ## Live Demo
 
-Demo URL: [Your Vercel Deployment URL]
+Demo URL: https://northfall.vercel.app/
 
 Note: The demo runs on Solana Devnet. No real funds are involved.
 
