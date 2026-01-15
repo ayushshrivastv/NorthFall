@@ -1,7 +1,5 @@
 # LazorKit Passkey Wallet Integration
 
-Superteam Bounty Submission: Integrate Passkey Technology with LazorKit to 10x Solana UX
-
 A production-ready implementation of LazorKit's passkey-based wallet infrastructure, demonstrating real-world usage of passkey authentication and gasless smart wallet transactions on Solana.
 
 ## Project Overview
@@ -620,22 +618,32 @@ Remove polyfill from `apps/web/app/layout.tsx`
 
 Uninstall dependencies: `pnpm remove @lazorkit/wallet @coral-xyz/anchor buffer`
 
-## Resources
+## Official Resources
 
-LazorKit Documentation: https://docs.lazorkit.com/
+LazorKit Website: https://lazorkit.com
 
-WebAuthn Specification: https://www.w3.org/TR/webauthn/
+LazorKit Documentation: https://docs.lazorkit.com
 
-Solana Documentation: https://docs.solana.com/
+LazorKit GitHub: https://github.com/lazor-kit
 
-Solscan Explorer: https://solscan.io/
+LazorKit NPM Package: https://www.npmjs.com/package/@lazorkit/wallet
 
-## Credits
+WebAuthn Specification: https://www.w3.org/TR/webauthn-2
 
-Built for Superteam Vietnam Bounty
+Solana Documentation: https://docs.solana.com
 
-Technology: LazorKit Passkey SDK
+Solscan Explorer: https://solscan.io
 
-Blockchain: Solana Devnet
+## Technology Stack
 
-Framework: Next.js 15 with TypeScript
+Framework: Next.js 15 with React 18
+
+Language: TypeScript 5
+
+Styling: Tailwind CSS
+
+Blockchain: Solana (Devnet)
+
+Wallet SDK: LazorKit Passkey Wallet
+
+Authentication: WebAuthn API
