@@ -6,6 +6,7 @@ import {
     OverviewSubContent,
     SandboxSubContent,
     NorthShellSubContent,
+    LazorKitSubContent,
 } from '../types/docs-types';
 import { IconType } from 'react-icons';
 import {
@@ -18,6 +19,7 @@ import {
     HiOutlineCloudArrowUp,
     HiOutlineArrowDownTray,
 } from 'react-icons/hi2';
+import { SiSolana } from 'react-icons/si';
 
 export interface SidebarContent {
     title: string;
@@ -113,5 +115,16 @@ export const contents: SidebarContent[] = [
             { id: ExportingSubContent.CONNECT_GITHUB, label: 'Export with GitHub' },
         ],
         icon: HiOutlineArrowDownTray,
+    },
+    {
+        title: 'LazorKit',
+        type: ClientDocsPanel.LAZORKIT,
+        subSections: [
+            { id: LazorKitSubContent.OVERVIEW, label: 'Overview' },
+            { id: LazorKitSubContent.PASSKEY_WALLET, label: 'Passkey Wallet' },
+            { id: LazorKitSubContent.GASLESS_TRANSACTIONS, label: 'Gasless Transactions' },
+            { id: LazorKitSubContent.SESSION_PERSISTENCE, label: 'Session Persistence' },
+        ],
+        icon: SiSolana,
     },
 ];

@@ -5,6 +5,7 @@ import ClientE2B from './ClientE2B';
 import ClientDocsExporting from './ClientDocsExporting';
 import ClientDocsDeployments from './ClientDocsDeployments';
 import ClientDocsNorthShell from './ClientDocsNorthShell';
+import ClientLazorKit from './ClientLazorKit';
 
 interface ClientDocsPanelRendererProps {
     clientPanel: ClientDocsPanel;
@@ -25,6 +26,8 @@ export default function ClientDocsPanelRenderer({ clientPanel }: ClientDocsPanel
                 return <ClientDocsExporting />;
             case ClientDocsPanel.DEPLOYMENT:
                 return <ClientDocsDeployments />;
+            case ClientDocsPanel.LAZORKIT:
+                return <ClientLazorKit />;
         }
     }
 
