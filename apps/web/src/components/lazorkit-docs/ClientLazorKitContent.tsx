@@ -62,24 +62,33 @@ function OverviewSection() {
             </div>
 
             <div className="flex items-center gap-x-5">
-                <Button size={'lg'} onClick={() => router.push('/')}>
-                    <span className="font-semibold text-dark">Try Demo</span>
+                <Button
+                    size={'lg'}
+                    className="bg-primary hover:bg-black text-white"
+                    onClick={() => router.push('/')}
+                >
+                    <span className="font-semibold">Try Demo</span>
                 </Button>
                 <Button
                     size={'lg'}
-                    variant="outline"
-                    className="border-light/20 hover:bg-light/10"
+                    className="bg-black hover:bg-primary text-white border-0"
                     onClick={() => window.open('https://youtu.be/KPpSZQnQms4', '_blank')}
                 >
-                    <span className="font-semibold text-light">Watch Demo Video</span>
+                    <span className="font-semibold">Watch Demo Video</span>
                 </Button>
                 <Button
                     size={'lg'}
-                    variant="outline"
-                    className="border-light/20 hover:bg-light/10"
+                    className="bg-black hover:bg-primary text-white border-0"
                     onClick={() => window.open('https://docs.lazorkit.com', '_blank')}
                 >
-                    <span className="font-semibold text-light">Official Docs</span>
+                    <span className="font-semibold">Official Docs</span>
+                </Button>
+                <Button
+                    size={'lg'}
+                    className="bg-primary hover:bg-black text-white"
+                    onClick={() => window.open('https://github.com/ayushshrivastv/NorthFall/tree/main/apps/web/src/features/lazorkit-demo', '_blank')}
+                >
+                    <span className="font-semibold">GitHub Implementation</span>
                 </Button>
             </div>
 
