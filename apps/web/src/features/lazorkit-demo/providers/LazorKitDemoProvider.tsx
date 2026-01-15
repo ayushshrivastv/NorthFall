@@ -20,7 +20,6 @@ export function LazorKitDemoProvider({ children }: LazorKitDemoProviderProps) {
             rpcUrl={LAZORKIT_CONFIG.rpcUrl}
             portalUrl={LAZORKIT_CONFIG.portalUrl}
             paymasterConfig={LAZORKIT_CONFIG.paymasterConfig}
-            appDomain={typeof window !== 'undefined' ? window.location.origin : 'http://localhost:3000'}
         >
             {children}
         </LazorkitProvider>
