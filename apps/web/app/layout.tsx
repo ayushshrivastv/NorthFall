@@ -9,33 +9,42 @@ import { Toaster } from 'sonner';
 import BufferPolyfill from '@/src/components/utility/BufferPolyfill';
 
 export const metadata: Metadata = {
-    title: 'NorthFall',
+    metadataBase: new URL('https://northfall.vercel.app'),
+    title: 'NorthFall | Prediction Markets for Startup Discovery',
     description:
         'NorthFall turns expert insight into market-driven startup discovery. Trade on early-stage companies through prediction markets and surface high-quality investment opportunities.',
-    metadataBase: new URL('https://northfall.dev'),
+    keywords: [
+        'prediction markets',
+        'startup discovery',
+        'venture capital',
+        'market signals',
+        'Kalshi',
+    ],
     openGraph: {
-        title: 'NorthFall',
+        title: 'NorthFall | Prediction Markets for Startup Discovery',
         description:
             'Turn expert insight into investable signal. Discover high-potential startups through prediction markets powered by domain experts.',
-        url: 'https://northfall.dev',
+        url: 'https://northfall.vercel.app',
         siteName: 'NorthFall',
         images: [
             {
-                url: '/images/northfall-dashboard.png',
+                url: '/og-image.png',
                 width: 1200,
                 height: 630,
-                alt: 'NorthFall Preview',
             },
         ],
+        locale: 'en_US',
         type: 'website',
     },
-
     twitter: {
         card: 'summary_large_image',
         title: 'NorthFall | Prediction Markets for Startup Discovery',
         description:
             'Turn expert insight into investable signal. Discover high-potential startups through prediction markets powered by domain experts.',
-        images: ['/images/northfall-dashboard.png'],
+        images: ['/og-image.png'],
+    },
+    other: {
+        'base:app_id': '6960ceaf8a6eeb04b568d92f',
     },
 };
 
