@@ -654,9 +654,12 @@ function CodeBlock({ language, children }: { language: string; children: string 
 
 function FeatureCard({ title, description }: { title: string; description: string }) {
     return (
-        <div className="bg-dark border border-neutral-800 rounded-lg p-4">
-            <h4 className="text-light font-semibold mb-2">{title}</h4>
-            <p className="text-sm text-light/70">{description}</p>
+        <div className="group relative bg-gradient-to-br from-neutral-900/90 to-neutral-950/90 backdrop-blur-sm border border-neutral-800/50 hover:border-primary/30 rounded-lg p-6 transition-all duration-300 hover:scale-[1.02] hover:shadow-lg hover:shadow-primary/10">
+            <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg" />
+            <div className="relative z-10">
+                <h4 className="text-light font-semibold mb-3 text-lg">{title}</h4>
+                <p className="text-sm text-light/70 leading-relaxed">{description}</p>
+            </div>
         </div>
     );
 }
