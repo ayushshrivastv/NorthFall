@@ -117,9 +117,10 @@ export default function ClientLazorKit() {
                             phrases to remember or store. Private keys are secured in your device's
                             Secure Enclave and never leave the hardware.
                         </p>
-                        <div className="bg-dark border border-neutral-800 rounded-lg p-4 mt-4">
-                            <h3 className="text-light font-semibold mb-2">How it works:</h3>
-                            <ul className="list-disc list-inside space-y-2 text-sm">
+                        <div className="group relative bg-gradient-to-br from-neutral-900/90 to-neutral-950/90 backdrop-blur-sm border border-neutral-800/50 hover:border-primary/30 rounded-lg p-6 mt-4 transition-all duration-300">
+                            <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg" />
+                            <h3 className="relative z-10 text-light font-semibold mb-2">How it works:</h3>
+                            <ul className="relative z-10 list-disc list-inside space-y-2 text-sm text-light/70">
                                 <li>Click "Create Passkey Wallet" in the LazorKit demo</li>
                                 <li>Browser prompts for FaceID, TouchID, or Windows Hello</li>
                                 <li>Authenticate with your biometrics</li>
@@ -138,9 +139,10 @@ export default function ClientLazorKit() {
                             service sponsors all transaction costs, enabling a completely gasless user
                             experience.
                         </p>
-                        <div className="bg-dark border border-neutral-800 rounded-lg p-4 mt-4">
-                            <h3 className="text-light font-semibold mb-2">Transaction flow:</h3>
-                            <ul className="list-disc list-inside space-y-2 text-sm">
+                        <div className="group relative bg-gradient-to-br from-neutral-900/90 to-neutral-950/90 backdrop-blur-sm border border-neutral-800/50 hover:border-primary/30 rounded-lg p-6 mt-4 transition-all duration-300">
+                            <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg" />
+                            <h3 className="relative z-10 text-light font-semibold mb-2">Transaction flow:</h3>
+                            <ul className="relative z-10 list-disc list-inside space-y-2 text-sm text-light/70">
                                 <li>Enter recipient address and amount</li>
                                 <li>Click "Send SOL (Gasless)"</li>
                                 <li>Authenticate with your passkey to sign</li>
@@ -160,9 +162,10 @@ export default function ClientLazorKit() {
                             need to reconnect manually. WebAuthn credentials are stored securely and
                             restore your session automatically.
                         </p>
-                        <div className="bg-dark border border-neutral-800 rounded-lg p-4 mt-4">
-                            <h3 className="text-light font-semibold mb-2">Session features:</h3>
-                            <ul className="list-disc list-inside space-y-2 text-sm">
+                        <div className="group relative bg-gradient-to-br from-neutral-900/90 to-neutral-950/90 backdrop-blur-sm border border-neutral-800/50 hover:border-primary/30 rounded-lg p-6 mt-4 transition-all duration-300">
+                            <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg" />
+                            <h3 className="relative z-10 text-light font-semibold mb-2">Session features:</h3>
+                            <ul className="relative z-10 list-disc list-inside space-y-2 text-sm text-light/70">
                                 <li>Automatic reconnection on page refresh</li>
                                 <li>Cross-device sync via iCloud Keychain or Google Password Manager</li>
                                 <li>No re-authentication required for active sessions</li>
@@ -173,28 +176,21 @@ export default function ClientLazorKit() {
                     </div>
                 </section>
 
-                <section className="bg-dark border border-neutral-800 rounded-lg p-6 mt-8">
-                    <h3 className="text-2xl font-bold text-light mb-4">Try it yourself</h3>
-                    <p className="text-light/70 mb-4">
-                        The LazorKit integration is live on NorthFall. Click the "LazorKit" button in
-                        the navigation bar to access the demo and experience passkey authentication
-                        firsthand.
-                    </p>
-                    <div className="flex gap-4">
-                        <Button onClick={() => router.push('/')}>
-                            <span className="font-semibold">Open Demo</span>
-                        </Button>
-                        <Button
-                            variant="outline"
-                            onClick={() =>
-                                window.open(
-                                    'https://github.com/ayushshrivastv/NorthFall/tree/main/apps/web/src/features/lazorkit-demo',
-                                    '_blank',
-                                )
-                            }
-                        >
-                            <span className="font-semibold">View Code</span>
-                        </Button>
+                <section className="group relative bg-gradient-to-br from-neutral-900/90 to-neutral-950/90 backdrop-blur-sm border border-neutral-800/50 hover:border-primary/30 rounded-lg p-8 mt-8 transition-all duration-300">
+                    <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg" />
+                    <div className="relative z-10">
+                        <h3 className="text-2xl font-bold text-light mb-4">Ready to Get Started?</h3>
+                        <p className="text-light/70 mb-6">
+                            Explore the complete LazorKit documentation and implementation guide.
+                        </p>
+                        <div className="flex gap-4">
+                            <Button
+                                onClick={() => router.push('/lazorkit')}
+                                className="bg-primary hover:bg-primary/80"
+                            >
+                                View Full Documentation
+                            </Button>
+                        </div>
                     </div>
                 </section>
             </div>

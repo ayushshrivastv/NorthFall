@@ -121,7 +121,7 @@ function OverviewSection() {
                 </div>
 
                 <h3 className="text-2xl font-bold text-light mt-8">Architecture</h3>
-                <pre className="bg-dark border border-neutral-800 rounded-lg p-4 text-sm text-light/80 overflow-x-auto">
+                <pre className="bg-gradient-to-br from-neutral-900/90 to-neutral-950/90 border border-neutral-800/50 rounded-lg p-6 text-sm text-light/80 overflow-x-auto">
                     {`lazorkit-demo/
 ├── config.ts                    # Configuration and utilities
 ├── providers/
@@ -249,8 +249,9 @@ function PasskeyWalletSection() {
             </p>
 
             <h3 className="text-2xl font-bold text-light mt-8">How it Works</h3>
-            <div className="bg-dark border border-neutral-800 rounded-lg p-4">
-                <ol className="list-decimal list-inside space-y-2 text-light/70">
+            <div className="group relative bg-gradient-to-br from-neutral-900/90 to-neutral-950/90 backdrop-blur-sm border border-neutral-800/50 hover:border-primary/30 rounded-lg p-6 transition-all duration-300">
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg" />
+                <ol className="relative z-10 list-decimal list-inside space-y-2 text-light/70">
                     <li>Click "Create Passkey Wallet" in the LazorKit demo</li>
                     <li>Browser prompts for FaceID, TouchID, or Windows Hello</li>
                     <li>Authenticate with your biometrics</li>
@@ -318,8 +319,9 @@ function GaslessTransactionsSection() {
             </p>
 
             <h3 className="text-2xl font-bold text-light mt-8">Transaction Flow</h3>
-            <div className="bg-dark border border-neutral-800 rounded-lg p-4">
-                <ol className="list-decimal list-inside space-y-2 text-light/70">
+            <div className="group relative bg-gradient-to-br from-neutral-900/90 to-neutral-950/90 backdrop-blur-sm border border-neutral-800/50 hover:border-primary/30 rounded-lg p-6 transition-all duration-300">
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg" />
+                <ol className="relative z-10 list-decimal list-inside space-y-2 text-light/70">
                     <li>User enters recipient address and amount</li>
                     <li>Click "Send SOL (Gasless)"</li>
                     <li>User authenticates with passkey to sign</li>
@@ -646,7 +648,7 @@ function DocSection({ title, children }: { title: string; children: React.ReactN
 
 function CodeBlock({ language, children }: { language: string; children: string }) {
     return (
-        <pre className="bg-dark border border-neutral-800 rounded-lg p-4 text-sm text-light/80 overflow-x-auto">
+        <pre className="bg-gradient-to-br from-neutral-900/90 to-neutral-950/90 border border-neutral-800/50 rounded-lg p-6 text-sm text-light/80 overflow-x-auto">
             <code className={`language-${language}`}>{children}</code>
         </pre>
     );
