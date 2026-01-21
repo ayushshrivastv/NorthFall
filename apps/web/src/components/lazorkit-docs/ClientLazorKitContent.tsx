@@ -40,7 +40,7 @@ export default function ClientLazorKitContent({ section }: ClientLazorKitContent
     };
 
     return (
-        <div className="w-full h-full flex flex-col gap-y-10 items-start text-left tracking-wide text-light/90 max-w-[80%] mx-auto">
+        <div className="w-full h-full flex flex-col gap-y-16 items-start text-left tracking-wide text-light/90 max-w-[85%] mx-auto py-8">
             {renderContent()}
         </div>
     );
@@ -55,7 +55,7 @@ function OverviewSection() {
                 <DocsHeading firstText="LazorKit" secondText="Documentation" />
             </div>
 
-            <div className="text-md text-light/70 tracking-wider max-w-[800px]">
+            <div className="text-base text-light/80 tracking-wide max-w-[900px] leading-relaxed">
                 Complete technical documentation for integrating LazorKit passkey wallet technology
                 into your Solana application. LazorKit provides seedless authentication, gasless
                 transactions, and persistent sessions.
@@ -100,8 +100,8 @@ function OverviewSection() {
                     TouchID, Windows Hello) and send transactions without holding SOL for fees.
                 </p>
 
-                <h3 className="text-2xl font-bold text-light mt-8">Core Features</h3>
-                <div className="grid grid-cols-2 gap-4 mt-4">
+                <h3 className="text-2xl font-bold text-light mt-12 mb-6">Core Features</h3>
+                <div className="grid grid-cols-2 gap-6 mt-4">
                     <FeatureCard
                         title="Passkey Authentication"
                         description="Create wallets using WebAuthn biometrics. No seed phrases to manage."
@@ -120,7 +120,7 @@ function OverviewSection() {
                     />
                 </div>
 
-                <h3 className="text-2xl font-bold text-light mt-8">Architecture</h3>
+                <h3 className="text-2xl font-bold text-light mt-12 mb-6">Architecture</h3>
                 <pre className="bg-gradient-to-br from-neutral-900/90 to-neutral-950/90 border border-neutral-800/50 rounded-lg p-6 text-sm text-light/80 overflow-x-auto">
                     {`lazorkit-demo/
 ├── config.ts                    # Configuration and utilities
@@ -143,8 +143,8 @@ function OverviewSection() {
 function InstallationSection() {
     return (
         <DocSection title="Installation">
-            <h3 className="text-2xl font-bold text-light">Dependencies</h3>
-            <p className="text-light/70">Install the required packages:</p>
+            <h3 className="text-2xl font-bold text-light mt-12 mb-4">Dependencies</h3>
+            <p className="text-light/80 leading-relaxed">Install the required packages:</p>
             <CodeBlock language="bash">
                 {`pnpm add @lazorkit/wallet @coral-xyz/anchor buffer`}
             </CodeBlock>
@@ -158,8 +158,8 @@ function InstallationSection() {
 }`}
             </CodeBlock>
 
-            <h3 className="text-2xl font-bold text-light mt-8">Browser Polyfill</h3>
-            <p className="text-light/70">
+            <h3 className="text-2xl font-bold text-light mt-12 mb-4">Browser Polyfill</h3>
+            <p className="text-light/80 leading-relaxed">
                 LazorKit requires the Node.js Buffer API in the browser. Create a polyfill component:
             </p>
             <CodeBlock language="tsx">
@@ -179,7 +179,7 @@ export default function BufferPolyfill() {
 }`}
             </CodeBlock>
 
-            <p className="text-light/70 mt-4">Add to your root layout:</p>
+            <p className="text-light/80 leading-relaxed mt-4">Add to your root layout:</p>
             <CodeBlock language="tsx">
                 {`// app/layout.tsx
 import BufferPolyfill from '@/src/components/utility/BufferPolyfill';
@@ -637,11 +637,11 @@ function TroubleshootingSection() {
 
 function DocSection({ title, children }: { title: string; children: React.ReactNode }) {
     return (
-        <div className="flex flex-col items-start w-full space-y-6">
+        <div className="flex flex-col items-start w-full space-y-8">
             <div className="text-6xl text-left flex flex-col items-start justify-center">
                 <DocsHeading firstText={title} secondText="Guide" />
             </div>
-            <div className="w-full space-y-6">{children}</div>
+            <div className="w-full space-y-8">{children}</div>
         </div>
     );
 }
