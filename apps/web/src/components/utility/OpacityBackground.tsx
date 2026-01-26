@@ -17,7 +17,34 @@ export default function OpacityBackground({
 
     useEffect(() => {
         setMounted(true);
-        return () => setMounted(false);
+
+        // Prevent background scroll with overflow hidden (works with touchpad)
+        const originalOverflow = document.body.style.overflow;
+        document.body.style.overflow = 'hidden';
+
+        // Prevent wheel events on the background (for touchpad)
+        const preventScroll = (e: WheelEvent | TouchEvent) => {
+            // Only prevent if the event is on the background, not inside modal content
+            const target = e.target as HTMLElement;
+            const modalContent = document.querySelector('.modal-scroll-container');
+
+            if (modalContent && !modalContent.contains(target)) {
+                e.preventDefault();
+            }
+        };
+
+        // Add passive: false to allow preventDefault
+        document.addEventListener('wheel', preventScroll, { passive: false });
+        document.addEventListener('touchmove', preventScroll, { passive: false });
+
+        return () => {
+            setMounted(false);
+            // Restore original overflow
+            document.body.style.overflow = originalOverflow;
+            // Remove event listeners
+            document.removeEventListener('wheel', preventScroll);
+            document.removeEventListener('touchmove', preventScroll);
+        };
     }, []);
 
     const handleBackgroundClick = (e: React.MouseEvent) => {

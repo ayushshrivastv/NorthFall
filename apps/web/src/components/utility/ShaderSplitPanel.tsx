@@ -34,13 +34,13 @@ export default function ShaderSplitPanel({
                 <div className="absolute inset-0 bg-linear-to-b from-black/70 via-black/30 to-transparent" />
                 {leftChildren}
             </div>
-            <div className="col-span-1">
+            <div className="col-span-1 overflow-y-auto scroll-smooth scrollbar-hide modal-scroll-container">
                 <div
                     className={cn(
                         'w-full max-w-[420px]',
                         'px-5 md:px-10 py-2 md:py-8',
-                        'flex flex-col items-center justify-center',
-                        'z-50 relative overflow-hidden h-full',
+                        'flex flex-col items-center',
+                        'z-50 relative h-full min-h-full',
                     )}
                 >
                     {rightChildren}

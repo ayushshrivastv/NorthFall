@@ -12,19 +12,22 @@ import { MdHomeFilled } from 'react-icons/md';
 import AppLogo from '../tickers/AppLogo';
 import { Tabs, TabsList, TabsTrigger } from '../ui/tabs';
 import LazorKitDemoModal from '@/src/features/lazorkit-demo/components/LazorKitDemoModal';
+import FairScaleModal from '@/src/features/fairscale/components/FairScaleModal';
 
 const navItems = [
     { name: 'Features', link: '#feature' },
     { name: 'Pricing', link: '#pricing' },
     { name: 'Faq', link: '#faq' },
     { name: 'About', link: '#about' },
-    { name: 'LazorKit', link: '#lazorkit-demo', isDemo: true },
+    { name: 'LazorKit', link: '#lazorkit-demo', isDemo: true, demoType: 'lazorkit' },
+    { name: 'FairScale', link: '#fairscale', isDemo: true, demoType: 'fairscale' },
 ];
 
 export default function Navbar() {
     const router = useRouter();
     const [openLoginModal, setOpenLoginModal] = useState<boolean>(false);
     const [openLazorKitDemo, setOpenLazorKitDemo] = useState<boolean>(false);
+    const [openFairScaleDemo, setOpenFairScaleDemo] = useState<boolean>(false);
     const [isNavbarVisible, setIsNavbarVisible] = useState<boolean>(true);
     const [lastScrollY, setLastScrollY] = useState<number>(0);
     const { session } = useUserSessionStore();
@@ -81,7 +84,11 @@ export default function Navbar() {
                                     value={item.name.toLowerCase()}
                                     onClick={() => {
                                         if (item.isDemo) {
-                                            setOpenLazorKitDemo(true);
+                                            if (item.demoType === 'lazorkit') {
+                                                setOpenLazorKitDemo(true);
+                                            } else if (item.demoType === 'fairscale') {
+                                                setOpenFairScaleDemo(true);
+                                            }
                                         } else {
                                             const element = document.querySelector(item.link);
                                             element?.scrollIntoView({ behavior: 'smooth' });
@@ -115,6 +122,7 @@ export default function Navbar() {
             </div>
             <LoginModal opensignInModal={openLoginModal} setOpenSignInModal={setOpenLoginModal} />
             <LazorKitDemoModal isOpen={openLazorKitDemo} setIsOpen={setOpenLazorKitDemo} />
+            <FairScaleModal isOpen={openFairScaleDemo} setIsOpen={setOpenFairScaleDemo} />
         </>
     );
 }

@@ -13,6 +13,7 @@ import { useUserSessionStore } from '@/src/store/user/useUserSessionStore';
 import ExportPanel from './ExportPanel.';
 import { useCurrentContract } from '@/src/hooks/useCurrentContract';
 import VersionLockTicker from '../tickers/VersionLockTicker';
+import FairScaleModal from '@/src/features/fairscale/components/FairScaleModal';
 
 export default function BuilderNavbarRightSection() {
     const [openWalletPanel, setOpenWalletPanel] = useState<boolean>(false);
@@ -67,6 +68,9 @@ export default function BuilderNavbarRightSection() {
 
     return (
         <div className="flex items-center justify-between gap-x-3 relative">
+            {/* FairScale Demo Button */}
+            <FairScaleModal />
+
             <div className="flex items-center justify-center">
                 <ToolTipComponent content="upcoming feature" side="bottom">
                     <Button

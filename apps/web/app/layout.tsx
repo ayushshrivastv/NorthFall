@@ -7,6 +7,7 @@ import type { Metadata } from 'next';
 import WalletProviders from '@/src/providers/WalletProviders';
 import { Toaster } from 'sonner';
 import BufferPolyfill from '@/src/components/utility/BufferPolyfill';
+import { FairScaleProvider } from '@/src/features/fairscale/providers/FairScaleProvider';
 
 export const metadata: Metadata = {
     metadataBase: new URL('https://northfall.vercel.app'),
@@ -80,7 +81,9 @@ export default async function RootLayout({
                         },
                     }}
                 />
-                <WalletProviders>{children}</WalletProviders>
+                <WalletProviders>
+                    <FairScaleProvider>{children}</FairScaleProvider>
+                </WalletProviders>
                 {/* Temporarily disabled - uncomment when environment variables are configured */}
                 {/* <SessionSetter session={session} /> */}
             </body>
