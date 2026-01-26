@@ -132,18 +132,21 @@ function OverviewSection() {
 
 function IntegrationSection() {
     return (
-        <DocSection title="Integration">
-            <h3 className="text-2xl font-bold text-light mt-12 mb-4">API Setup</h3>
+        <DocSection title="Integration Architecture">
+            <h3 className="text-2xl font-bold text-light mt-12 mb-4">Seamless Provider Implementation</h3>
             <p className="text-light/80 leading-relaxed">
-                FairScale is integrated via a lightweight API wrapper. No heavy SDKs required.
+                FairScale acts as a foundational context layer within the NorthFall application shell.
+                By placing the provider at the root level, we ensure that reputation state is globally consistent
+                and accessible to any component requiring authorization checks, from the navigation bar to individual market contracts.
             </p>
 
             <h3 className="text-2xl font-bold text-light mt-8">Basic Component Structure</h3>
             <CodeBlock language="tsx">
-                {`// 1. Wrap your app with the provider
+                {`// 1. Root Layer: Global State Management
 import { FairScaleProvider } from '@/src/features/fairscale/providers/FairScaleProvider';
 
 export default function Layout({ children }) {
+  // Wraps the entire application to ensure persistent reputation state
   return (
     <FairScaleProvider>
       {children}
@@ -151,19 +154,20 @@ export default function Layout({ children }) {
   );
 }
 
-// 2. Use the hook in your components
+// 2. Feature Layer: Access Control Logic
 import { useFairScale } from '@/src/features/fairscale/providers/FairScaleProvider';
 
 export function UserProfile() {
   const { walletReputation, isLoading } = useFairScale();
   
-  if (isLoading) return <div>Calculating Score...</div>;
+  // Graceful loading states prevent UI layout shifts
+  if (isLoading) return <ReputationSkeleton />;
   
   return (
-    <div>
-      <h1>Tier: {walletReputation?.currentTier.name}</h1>
-      <p>Score: {walletReputation?.fairScore.score}</p>
-    </div>
+    <TierDashboard 
+      tier={walletReputation?.currentTier} 
+      score={walletReputation?.fairScore.score}
+    />
   );
 }`}
             </CodeBlock>
