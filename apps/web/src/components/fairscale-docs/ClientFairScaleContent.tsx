@@ -48,13 +48,14 @@ function OverviewSection() {
     return (
         <div className="flex flex-col items-start w-full space-y-8">
             <div className="text-6xl text-left flex flex-col items-start justify-center">
-                <DocsHeading firstText="FairScale" secondText="Documentation" />
+                <DocsHeading firstText="FairScale" secondText="Architecture" />
             </div>
 
             <div className="text-base text-light/80 tracking-wide max-w-[900px] leading-relaxed">
-                Empower your Solana application with onchain reputation. FairScale analyzes wallet
-                activity to assign credit scores, enabling tiered access, dynamic limits, and
-                reward multipliers for your users.
+                NorthFall leverages FairScale's onchain reputation infrastructure to establish a verifiable trust layer
+                for our decentralized exchange. by integrating real-time wallet analysis, we enable a meritocratic
+                trading environment where user history directly translates to protocol privileges, capital efficiency,
+                and exclusive market access.
             </div>
 
             <div className="flex items-center gap-x-5">
@@ -63,67 +64,66 @@ function OverviewSection() {
                     className="bg-[#9945FF] hover:bg-black text-white"
                     onClick={() => router.push('/')}
                 >
-                    <span className="font-semibold">Try Demo</span>
+                    <span className="font-semibold">Live Demo</span>
                 </Button>
                 <Button
                     size={'lg'}
                     className="bg-black hover:bg-[#9945FF] text-white border-0"
                     onClick={() => window.open('https://fairscale.xyz', '_blank')}
                 >
-                    <span className="font-semibold">Official Website</span>
+                    <span className="font-semibold">FairScale Platform</span>
                 </Button>
                 <Button
                     size={'lg'}
                     className="bg-[#9945FF] hover:bg-black text-white"
                     onClick={() => window.open('https://github.com/ayushshrivastv/NorthFall/tree/main/apps/web/src/features/fairscale', '_blank')}
                 >
-                    <span className="font-semibold">GitHub Implementation</span>
+                    <span className="font-semibold">Source Architecture</span>
                 </Button>
             </div>
 
             <div className="w-full space-y-6 mt-8">
-                <h2 className="text-3xl font-bold text-light">Why FairScale?</h2>
+                <h2 className="text-3xl font-bold text-light">Strategic Integration</h2>
                 <p className="text-light/70">
-                    Traditional DeFi treats every wallet the same. FairScale brings merit-based access to onchain markets,
-                    allowing protocols to trust their users based on verifiable onchain history.
+                    In decentralized finance, capital efficiency is often hampered by the lack of identity.
+                    NorthFall solves this by implementing FairScale as a non-intrusive identity layer.
+                    This allows us to offer institutional-grade features to retail users who have proven
+                    their reliability onchain, without compromising privacy or requiring KYC.
                 </p>
 
-                <h3 className="text-2xl font-bold text-light mt-12 mb-6">Key Capabilities</h3>
+                <h3 className="text-2xl font-bold text-light mt-12 mb-6">Value Drivers</h3>
                 <div className="grid grid-cols-2 gap-6 mt-4">
                     <FeatureCard
-                        title="Onchain Credit Scoring"
-                        description="Reputation scores derived from transaction history, asset holding time, and protocol interactions."
+                        title="Risk-Adjusted Access"
+                        description=" We mitigate protocol risk by gating high-leverage and experimental markets to users with proven onchain maturity."
                     />
                     <FeatureCard
-                        title="Market Gating"
-                        description="Restrict access to high-risk or premium markets based on user reputation tiers."
+                        title="Meritocratic Rewards"
+                        description="NorthFall automatically distributes higher yields and fee rebates to long-term participants, creating sustainable retention."
                     />
                     <FeatureCard
-                        title="Dynamic Limits"
-                        description="Automatically adjust position limits and leverage based on trust scores."
+                        title="Sybil Resistance"
+                        description="By requiring historical onchain activity for premium features, we naturally filter out bot interactions and wash traders."
                     />
                     <FeatureCard
-                        title="Reward Multipliers"
-                        description="Incentivize good behavior with automated yield boosts for high-reputation users."
+                        title="Undercollateralized Potential"
+                        description="FairScale scores lay the groundwork for future undercollateralized lending pools based on wallet creditworthiness."
                     />
                 </div>
 
-                <h3 className="text-2xl font-bold text-light mt-12 mb-6">Architecture</h3>
+                <h3 className="text-2xl font-bold text-light mt-12 mb-6">System Architecture</h3>
                 <pre className="bg-gradient-to-br from-neutral-900/90 to-neutral-950/90 border border-neutral-800/50 rounded-lg p-6 text-sm text-light/80 overflow-x-auto">
-                    {`fairscale/
-├── config.ts                    # Tier thresholds and market configs
+                    {`apps/web/src/features/fairscale/
 ├── providers/
-│   └── FairScaleProvider.tsx    # Global reputation state provider
+│   └── FairScaleProvider.tsx    # State Management: Handles API polling and global context
 ├── components/
-│   ├── FairScaleModal.tsx       # Main reputation interface
-│   ├── OnchainVerificationBadge.tsx # Blockchain proof badge
-│   ├── ReputationGatedMarket.tsx # Gated market component
-│   ├── TransactionHistory.tsx   # Activity log with benefits
-│   └── BenefitsComparison.tsx   # Tier upgrade visualization
+│   ├── FairScaleModal.tsx       # UI Layer: User facing reputation dashboard
+│   ├── OnchainVerificationBadge.tsx # Trust Layer: Solscan integration for proof
+│   └── ReputationGatedMarket.tsx # Access Control: Logic for market permissions
 ├── hooks/
-│   └── useTierAccess.ts         # Custom hook for gating logic
+│   └── useTierAccess.ts         # Logic Layer: Abstracted permission hooks
 └── utils/
-    └── fairscaleApi.ts          # API integration layer`}
+    └── fairscaleApi.ts          # Network Layer: Fail-safe API communication`}
                 </pre>
             </div>
         </div>
@@ -226,29 +226,30 @@ NEXT_PUBLIC_FAIRSCALE_PROGRAM_ID=fairScaLe1111111111111111111111111111111111`}
 
 function ReputationScoringSection() {
     return (
-        <DocSection title="Reputation Scoring">
+        <DocSection title="Trust Architecture">
             <p className="text-light/70">
-                FairScale calculates a **FairScore** (0-1000) based on onchain activity.
-                The scoring algorithm considers multiple factors to build a comprehensive trust profile.
+                At the core of the NorthFall ecosystem is the **FairScore** algorithm (0-1000).
+                Unlike static whitelists, this dynamic metric evolves in real-time, creating a continuous feedback
+                loop where positive user behavior is immediately recognized and rewarded by the protocol.
             </p>
 
-            <h3 className="text-2xl font-bold text-light mt-8">Scoring Factors</h3>
+            <h3 className="text-2xl font-bold text-light mt-8">Trust Signals</h3>
             <div className="space-y-4 mt-4">
                 <FeatureCard
-                    title="Transaction History"
-                    description="Consistency, volume, and longevity of wallet activity."
+                    title="Economic Consistency"
+                    description="Analyzes transaction regularity and volume to distinguish committed participants from opportunistic farmers."
                 />
                 <FeatureCard
-                    title="Asset Holding"
-                    description="Duration of holding key assets (preventing wash trading)."
+                    title="Asset Retention"
+                    description="Rewards long-term capital preservation over rapid churn, aligning user incentives with protocol TVL stability."
                 />
                 <FeatureCard
-                    title="Protocol Interactions"
-                    description="Diversity of interactions with verified DeFi protocols."
+                    title="Ecosystem Interoperability"
+                    description="Validates reputational standing across partner DeFi protocols to create a holistic credit profile."
                 />
                 <FeatureCard
-                    title="Liquidations & Health"
-                    description="History of maintaining healthy collateral ratios."
+                    title="Solvency History"
+                    description="Tracks health factor maintenance and liquidation avoidance to assess credit risk for undercollateralized features."
                 />
             </div>
         </DocSection>
