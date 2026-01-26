@@ -17,6 +17,7 @@ import { Button } from '@/src/components/ui/button';
 import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/src/components/ui/tabs';
 import OnchainVerificationBadge from './OnchainVerificationBadge';
 import BenefitsComparison from './BenefitsComparison';
+import TransactionHistory from './TransactionHistory';
 
 interface FairScaleModalProps {
     isOpen: boolean;
@@ -259,6 +260,12 @@ function ModalContent() {
                     >
                         Markets
                     </TabsTrigger>
+                    <TabsTrigger
+                        value="activity"
+                        className="flex-1 data-[state=active]:bg-[#9945FF] data-[state=active]:text-white text-light/70 text-xs md:text-sm"
+                    >
+                        Activity
+                    </TabsTrigger>
                 </TabsList>
 
                 <TabsContent value="reputation" className="mt-4 space-y-4">
@@ -291,6 +298,10 @@ function ModalContent() {
                             />
                         ))}
                     </div>
+                </TabsContent>
+
+                <TabsContent value="activity" className="mt-4">
+                    <TransactionHistory />
                 </TabsContent>
             </Tabs>
         </div>
