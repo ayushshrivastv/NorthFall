@@ -20,6 +20,7 @@ export default function BuilderNavbarRightSection() {
     const [showRepoPanel, setShowRepoPanel] = useState<boolean>(false);
     const [openProfileMenu, setOpenProfleMenu] = useState<boolean>(false);
     const [isConnectingGithub, setIsConnectingGithub] = useState<boolean>(false);
+    const [isFairScaleOpen, setIsFairScaleOpen] = useState<boolean>(false);
     const contract = useCurrentContract();
     const { session } = useUserSessionStore();
     const { loading } = contract;
@@ -69,7 +70,18 @@ export default function BuilderNavbarRightSection() {
     return (
         <div className="flex items-center justify-between gap-x-3 relative">
             {/* FairScale Demo Button */}
-            <FairScaleModal />
+            {/* FairScale Demo Button */}
+            <ToolTipComponent content="Reputation System" side="bottom">
+                <Button
+                    onClick={() => setIsFairScaleOpen(true)}
+                    size="xs"
+                    className="bg-[#9945FF] text-white hover:bg-[#7b35cc] tracking-wider cursor-pointer transition-transform hover:-translate-y-0.5 duration-300 font-semibold rounded-[4px] exec-button-dark"
+                >
+                    <span className="text-[11px]">FairScale</span>
+                </Button>
+            </ToolTipComponent>
+
+            <FairScaleModal isOpen={isFairScaleOpen} setIsOpen={setIsFairScaleOpen} />
 
             <div className="flex items-center justify-center">
                 <ToolTipComponent content="upcoming feature" side="bottom">
