@@ -1,57 +1,23 @@
-# FairScale Reputation Integration
+# FairScale Integration
 
-## Overview
+This directory contains the integration of FairScale onchain reputation scoring into the NorthFall application. The implementation focuses on providing a verifiable, metric-driven approach to user trust that enables dynamic access control and incentivized participation without reliance on centralized identity providers.
 
-This demo showcases **FairScale's onchain reputation scoring** integrated into NorthFall's prediction markets. Users can see how their wallet's FairScore determines access to different market tiers.
+## Integration Overview
 
-## Features
+The core of this integration is the FairScaleProvider which manages the application-wide reputation state. By interfacing directly with the FairScale API, the provider fetches and maintains up-to-date FairScore data for connected wallets. This score serves as the fundamental metric for determining user eligibility for various platform features. The implementation leverages a modular architecture where the API layer handles data fetching and transformation, while dedicated hooks expose access controls to the frontend components.
 
-### 🎯 Reputation-Based Tiers
+## Reputation Gating Architecture
 
-- **Bronze Tier** (0-299): Basic market access, $100 trading limit
-- **Silver Tier** (300-599): Most markets, $500 limit, 10% fee discount
-- **Gold Tier** (600-849): All markets + early access, $2K limit, 25% discount
-- **Platinum Tier** (850-1000): VIP markets, $10K limit, 50% discount, 2x rewards
+Market access is governed by a hierarchical tier system that maps quantitative scores to qualitative access levels. The ReputationGatedMarket component implements this logic by visually distinguishing between accessible and restricted markets based on the user's current standing. This creates a transparent environment where users can clearly understand the requirements for premium features. Instead of opaque restrictions, the system provides explicit feedback on the score requirements needed to unlock specific markets, fostering a progression-oriented user experience.
 
-### 🔒 Gated Market Access
+## Onchain Verification
 
-Markets are locked based on reputation tier. Higher FairScore = access to more exclusive markets with better terms.
+To establish trust in the displayed metrics, the integration includes a verification mechanism that links off-chain scores to onchain data. The OnchainVerificationBadge component provides direct links to the Solana blockchain explorer, allowing users to independently verify that their reputation data is anchored onchain. This transparency is crucial for maintaining user confidence in the fairness of the scoring system and the legitimacy of the benefits rewarded.
 
-### 📊 Live Reputation Display
+## Dynamic Benefits System
 
-- Real-time FairScore visualization
-- Tier progress tracking
-- Badge achievements
-- Social signal verification
+Beyond simple access gating, the system implements a dynamic benefits structure that rewards higher reputation tiers with tangible advantages. The BenefitsComparison and TierBenefitsDisplay components visualize the specific advantages available at each tier, such as increased trading limits, fee discounts, and reward multipliers. This approach transforms reputation from a passive metric into an active utility that directly enhances the user's economic efficiency within the platform.
 
-## How to Use
+## Transaction History and Transparency
 
-1. **Click "FairScale"** in the navbar
-2. **Connect a wallet** (or use demo wallet)
-3. **View your FairScore** and current tier
-4. **Explore gated markets** - see which ones you can access
-5. **Compare tier benefits** in the benefits table
-
-## Technical Details
-
-### Mock Data
-
-Currently uses deterministic mock data based on wallet address. Real FairScale API integration coming soon.
-
-### Architecture
-
-- **Provider**: `FairScaleProvider` - Manages state and API calls
-- **Hooks**: `useTierAccess` - Access control logic
-- **Components**:
-  - `WalletReputationCard` - Score display
-  - `TierBenefitsDisplay` - Benefits comparison
-  - `ReputationGatedMarket` - Market cards with tier locks
-  - `FairScaleModal` - Main demo interface
-
-## Future Enhancements
-
-- [ ] Real FairScale API integration
-- [ ] Social signal verification (Twitter, Discord, GitHub)
-- [ ] Dynamic tier thresholds
-- [ ] Historical score tracking
-- [ ] Tier upgrade notifications
+The activity logging system provides users with granular visibility into how their onchain actions influence their reputation. The TransactionHistory component aggregates relevant blockchain interactions and highlights the specific reputation impacts and applied benefits for each transaction. This feedback loop helps users understand the correlation between their behavior and their standing within the ecosystem, encouraging positive participation that benefits the protocol's overall health.
