@@ -2,22 +2,72 @@
 
 This directory contains the integration of FairScale onchain reputation scoring into the NorthFall application. The implementation focuses on providing a verifiable, metric-driven approach to user trust that enables dynamic access control and incentivized participation without reliance on centralized identity providers.
 
-## Integration Overview
+## System Architecture
 
-The core of this integration is the FairScaleProvider which manages the application-wide reputation state. By interfacing directly with the FairScale API, the provider fetches and maintains up-to-date FairScore data for connected wallets. This score serves as the fundamental metric for determining user eligibility for various platform features. The implementation leverages a modular architecture where the API layer handles data fetching and transformation, while dedicated hooks expose access controls to the frontend components.
+The FairScale integration operates as a self-contained feature module orchestrated by a central provider. This ensures a clean separation of concerns where reputation state is managed globally but consumed locally by specific components.
 
-## Reputation Gating Architecture
+### Architecture Overview
 
-Market access is governed by a hierarchical tier system that maps quantitative scores to qualitative access levels. The ReputationGatedMarket component implements this logic by visually distinguishing between accessible and restricted markets based on the user's current standing. This creates a transparent environment where users can clearly understand the requirements for premium features. Instead of opaque restrictions, the system provides explicit feedback on the score requirements needed to unlock specific markets, fostering a progression-oriented user experience.
+```mermaid
+graph TD
+    A[App Root] -->|Wraps| B[FairScale Provider]
+    B -->|Polls| C[FairScale API]
+    B -->|Manages| D[Global Reputation State]
+    D -->|Consumed By| E[OnchainVerificationBadge]
+    D -->|Consumed By| F[ReputationGatedMarket]
+    D -->|Consumed By| G[BenefitsComparison]
+    D -->|Consumed By| H[TransactionHistory]
+```
 
-## Onchain Verification
+### Core Data Flow
 
-To establish trust in the displayed metrics, the integration includes a verification mechanism that links off-chain scores to onchain data. The OnchainVerificationBadge component provides direct links to the Solana blockchain explorer, allowing users to independently verify that their reputation data is anchored onchain. This transparency is crucial for maintaining user confidence in the fairness of the scoring system and the legitimacy of the benefits rewarded.
+1.  **State Initialization**: The `FairScaleProvider` initializes at the application root, ensuring reputation data is available before page content renders.
+2.  **API Communication**: The `fairscaleApi.ts` utility layer handles secure communication with the FairScale endpoints, managing retries and error states.
+3.  **Context Distribution**: Reputation data (FairScore, Tier, History) is broadcast via React Context to any component using the `useFairScale` hook.
+4.  **Access Control**: Logical hooks like `useTierAccess` consume this state to enforce market gating and benefit unlocking in real-time.
 
-## Dynamic Benefits System
+## Project Setup
 
-Beyond simple access gating, the system implements a dynamic benefits structure that rewards higher reputation tiers with tangible advantages. The BenefitsComparison and TierBenefitsDisplay components visualize the specific advantages available at each tier, such as increased trading limits, fee discounts, and reward multipliers. This approach transforms reputation from a passive metric into an active utility that directly enhances the user's economic efficiency within the platform.
+To activate the FairScale integration features within the NorthFall application, ensure the following configuration is in place.
 
-## Transaction History and Transparency
+### Environment Configuration
 
-The activity logging system provides users with granular visibility into how their onchain actions influence their reputation. The TransactionHistory component aggregates relevant blockchain interactions and highlights the specific reputation impacts and applied benefits for each transaction. This feedback loop helps users understand the correlation between their behavior and their standing within the ecosystem, encouraging positive participation that benefits the protocol's overall health.
+Add the specific FairScale keys to your `.env.local` file to enable API connectivity and onchain verification links:
+
+```bash
+# FairScale API Access
+NEXT_PUBLIC_FAIRSCALE_API_KEY=your_production_api_key
+NEXT_PUBLIC_FAIRSCALE_API_URL=https://api.fairscale.xyz
+
+# Solana Program Reference
+NEXT_PUBLIC_FAIRSCALE_PROGRAM_ID=fairScaLe1111111111111111111111111111111111
+```
+
+### Dependency Structure
+
+The feature is organized to be modular and easily maintainable:
+
+-   **`providers/`**: Contains `FairScaleProvider.tsx` which serves as the single source of truth for reputation state.
+-   **`components/`**: Modular UI elements including:
+    -   `OnchainVerificationBadge`: Displays trust status with explorer links.
+    -   `ReputationGatedMarket`: Handles conditional rendering for locked/unlocked markets.
+    -   `TransactionHistory`: Visualizes reputation impact of past actions.
+-   **`hooks/`**: Reusable logic such as `useTierAccess` for abstracting complex permission checks.
+-   **`utils/`**: Type-safe API clients and data transformation helpers.
+
+## Functional Capabilities
+
+### Reputation Gating Architecture
+Market access is governed by a hierarchical tier system that maps quantitative scores to qualitative access levels. The system provides explicit transparency, showing users exactly what score requirements are needed to unlock specific markets, rather than opaque "access denied" messages.
+
+### Onchain Verification
+To establish trust, the integration links off-chain scores to onchain data. The verification badge provides direct evidence via Solana Explorer links, allowing users to independently audit the legitimacy of their reputation score and the contract state.
+
+### Dynamic Benefits System
+The system transforms reputation from a fast vanity metric into an active economic utility. Higher tiers automatically unlock tangible system parameters such as:
+-   **Fee Discounts**: Programmatic reduction in protocol fees.
+-   **Trading Limits**: Expanded position size caps for trusted users.
+-   **Reward Multipliers**: Enhanced yield farming rates for long-term participants.
+
+### Transaction History & Transparency
+The activity logging system creates a feedback loop for user behavior. By highlighting exactly which transactions contributed to reputational growth or decline, the system educates users on optimal protocol interaction patterns.
