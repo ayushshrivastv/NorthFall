@@ -5,6 +5,7 @@ import DocsHeading from '../ui/DocsHeading';
 import { Button } from '../ui/button';
 import { useRouter } from 'next/navigation';
 
+
 interface ClientFairScaleContentProps {
     section: FairScaleDocsSection;
 }
@@ -44,9 +45,9 @@ export default function ClientFairScaleContent({ section }: ClientFairScaleConte
 
 function OverviewSection() {
     const router = useRouter();
-
     return (
         <div className="flex flex-col items-start w-full space-y-8">
+
             <div className="text-6xl text-left flex flex-col items-start justify-center">
                 <DocsHeading firstText="FairScale" secondText="Architecture" />
             </div>

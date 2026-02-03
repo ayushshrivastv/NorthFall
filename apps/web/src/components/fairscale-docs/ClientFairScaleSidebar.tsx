@@ -7,6 +7,7 @@ import { HiMiniMagnifyingGlass } from 'react-icons/hi2';
 import { useFairScaleDocsStore } from '@/src/store/fairscale-docs/useFairScaleDocsStore';
 import { IoMdArrowForward } from 'react-icons/io';
 import { useRouter } from 'next/navigation';
+import FairScaleModal from '@/src/features/fairscale/components/FairScaleModal';
 import {
     HiOutlineInformationCircle,
     HiOutlineRocketLaunch,
@@ -49,6 +50,7 @@ export default function ClientFairScaleSidebar({ switchSection }: ClientFairScal
     const [_activeIndex, setActiveIndex] = useState<number>(0);
     const { activeSection, setActiveSection } = useFairScaleDocsStore();
     const router = useRouter();
+    const [isFairScaleOpen, setIsFairScaleOpen] = useState(false);
 
     function handleSectionSwitch(index: number, section: FairScaleDocsSection): void {
         setActiveIndex(index);
@@ -116,7 +118,7 @@ export default function ClientFairScaleSidebar({ switchSection }: ClientFairScal
                 <button
                     type="button"
                     className="flex items-center gap-x-2 cursor-pointer group"
-                    onClick={() => router.push('/')}
+                    onClick={() => setIsFairScaleOpen(true)}
                 >
                     <span className="text-light group-hover:text-[#9945FF] transition-colors">
                         Try FairScale Demo
@@ -128,6 +130,8 @@ export default function ClientFairScaleSidebar({ switchSection }: ClientFairScal
                     northfall.vercel.app
                 </div>
             </div>
+
+            <FairScaleModal isOpen={isFairScaleOpen} setIsOpen={setIsFairScaleOpen} />
         </div>
     );
 }
