@@ -60,27 +60,29 @@ function OverviewSection() {
             </div>
 
             <div className="flex items-center gap-x-5">
-                <Button
-                    size={'lg'}
-                    className="bg-[#9945FF]/40 text-white/50 cursor-not-allowed opacity-60 hover:bg-[#9945FF]/40"
-                    onClick={() => window.open('https://x.com/thecineintosh/status/2015801205897957434?s=20', '_blank')}
-                >
-                    <span className="font-semibold">Live Demo</span>
-                </Button>
-                <Button
-                    size={'lg'}
-                    className="bg-black/40 text-white/50 border-0 cursor-not-allowed opacity-60 hover:bg-black/40"
-                    onClick={() => window.open('https://x.com/thecineintosh/status/2015801205897957434?s=20', '_blank')}
-                >
-                    <span className="font-semibold">FairScale Platform</span>
-                </Button>
-                <Button
-                    size={'lg'}
-                    className="bg-[#9945FF]/40 text-white/50 cursor-not-allowed opacity-60 hover:bg-[#9945FF]/40"
-                    onClick={() => window.open('https://x.com/thecineintosh/status/2015801205897957434?s=20', '_blank')}
-                >
-                    <span className="font-semibold">Source Architecture</span>
-                </Button>
+                <div className="flex items-center gap-x-5">
+                    <Button
+                        size={'lg'}
+                        className="bg-[#9945FF] hover:bg-black text-white"
+                        onClick={() => router.push('/')}
+                    >
+                        <span className="font-semibold">Live Demo</span>
+                    </Button>
+                    <Button
+                        size={'lg'}
+                        className="bg-black hover:bg-[#9945FF] text-white border-0"
+                        onClick={() => window.open('https://app.fairscale.xyz', '_blank')}
+                    >
+                        <span className="font-semibold">FairScale Platform</span>
+                    </Button>
+                    <Button
+                        size={'lg'}
+                        className="bg-[#9945FF] hover:bg-black text-white"
+                        onClick={() => window.open('https://github.com/ayushshrivastv/NorthFall/tree/main/apps/web/src/features/fairscale', '_blank')}
+                    >
+                        <span className="font-semibold">Source Architecture</span>
+                    </Button>
+                </div>
             </div>
 
             <div className="w-full space-y-6 mt-8">
